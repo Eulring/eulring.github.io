@@ -434,7 +434,7 @@
             
                 <span class="post-meta-item-text">Comments: </span>
                 <a href="/2019/03/04/E-Variational-Auto-Encoding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/E-Variational-Auto-Encoding/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/04/E-Variational-Auto-Encoding/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -599,9 +599,9 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+      
+        <div id="gitment-container"></div>
+      
     </div>
 
   
@@ -932,30 +932,48 @@
 
   
   
-  
-  <script id="dsq-count-scr" src="https://E.disqus.com/count.js" async></script>
 
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
 
 <script>
-  var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/";
-    this.page.identifier = "2019/03/04/E-Variational-Auto-Encoding/";
-    this.page.title = 'Variational Auto Encoding';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://E.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'eulring',
+      repo: 'eulring.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '790d524f77828f326729967912a298eec6a572d6',
+      
+        client_id: '82137fb0220d8bed7c85'
+      }
+    });
+    gitment.render('gitment-container');
   }
+
   
-    loadComments();
+    renderGitment();
   
 </script>
-
-
-
-
 
   
 
