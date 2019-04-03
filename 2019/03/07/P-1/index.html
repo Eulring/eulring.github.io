@@ -96,31 +96,27 @@
 
 
 
-  <meta name="description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
-<meta name="keywords" content="VAE,Machine Learning">
+  <meta name="description" content="3-7 Hierarchical Recurrent Attention Network for Response GenerationMulti-turn conversation 的任务有两个复杂之处  对话内容是多层次的 不是所有内容都是同等重要的  2015 年，Neural responding machine for short-text conversation 这篇论文最先把 at">
+<meta name="keywords" content="NLP,AAAI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Variational Auto Encoding">
-<meta property="og:url" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/index.html">
+<meta property="og:title" content="paper reading-1">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/P-1/index.html">
 <meta property="og:site_name" content="Eulring">
-<meta property="og:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
+<meta property="og:description" content="3-7 Hierarchical Recurrent Attention Network for Response GenerationMulti-turn conversation 的任务有两个复杂之处  对话内容是多层次的 不是所有内容都是同等重要的  2015 年，Neural responding machine for short-text conversation 这篇论文最先把 at">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img1.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img2.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img4.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img5.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img3.jpg">
-<meta property="og:updated_time" content="2019-03-06T01:25:21.199Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img1.jpg">
+<meta property="og:updated_time" content="2019-04-03T12:58:55.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Variational Auto Encoding">
-<meta name="twitter:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img1.jpg">
+<meta name="twitter:title" content="paper reading-1">
+<meta name="twitter:description" content="3-7 Hierarchical Recurrent Attention Network for Response GenerationMulti-turn conversation 的任务有两个复杂之处  对话内容是多层次的 不是所有内容都是同等重要的  2015 年，Neural responding machine for short-text conversation 这篇论文最先把 at">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/07/P-1/img1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/P-1/">
 
 
 
@@ -130,7 +126,7 @@
   };
 </script>
 
-  <title>Variational Auto Encoding | Eulring</title>
+  <title>paper reading-1 | Eulring</title>
   
 
 
@@ -355,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/P-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JunYi Bian">
@@ -372,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Variational Auto Encoding
+          <h1 class="post-title" itemprop="name headline">paper reading-1
 
               
             
@@ -398,7 +394,7 @@
                 
               
 
-              <time title="Created: 2019-03-04 19:51:05" itemprop="dateCreated datePublished" datetime="2019-03-04T19:51:05+08:00">2019-03-04</time>
+              <time title="Created: 2019-03-07 09:39:18" itemprop="dateCreated datePublished" datetime="2019-03-07T09:39:18+08:00">2019-03-07</time>
             
 
             
@@ -415,11 +411,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-06 09:25:21" itemprop="dateModified" datetime="2019-03-06T09:25:21+08:00">2019-03-06</time>
+                <time title="Modified: 2019-04-03 20:58:55" itemprop="dateModified" datetime="2019-04-03T20:58:55+08:00">2019-04-03</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/paper-reading/" itemprop="url" rel="index"><span itemprop="name">paper reading</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -433,8 +447,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/03/04/E-Variational-Auto-Encoding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/E-Variational-Auto-Encoding/" itemprop="commentCount"></span>
+                <a href="/2019/03/07/P-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/07/P-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -442,7 +456,7 @@
 
           
           
-            <span id="/2019/03/04/E-Variational-Auto-Encoding/" class="leancloud_visitors" data-flag-title="Variational Auto Encoding">
+            <span id="/2019/03/07/P-1/" class="leancloud_visitors" data-flag-title="paper reading-1">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -480,39 +494,15 @@
       
 
       
-        <h1 id="Auto-Encoder"><a href="#Auto-Encoder" class="headerlink" title="Auto Encoder"></a>Auto Encoder</h1><p>在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据<code>x</code>压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据<code>x</code>是由带有分布的隐变量<code>z</code>所产生的<br>$$z\sim p(z),  x\sim p(x|z)$$</p>
-<p>autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程（encoder）从向量到图片的过程是解码的过程（decoder），在这个原始的过程中，向量是没有含义的，他的作用是编码，没有编码以外<br>的功能</p>
-<p>在机器学习的技术尤其是神经网络兴起以后，编码和解码都可以由神经网络来代替，编码的过程和解码的过程可以整合到一个 loss function 中来进行训练，这个 loss 可以看作是数据编码成隐变量然后解码后的数据于原始数据之间的差距。</p>
-<p><img src="/2019/03/04/E-Variational-Auto-Encoding/img1.jpg" align="justify"></p>
-<p>仔细考虑一下，Auto Encoder 的本质其实就是 PCA，把数据降维以后，选取数据中明显的特征来作为数据的表示。</p>
-<p>AE 由一个缺点，就是我们没能掌握 <code>z</code> 的分布。</p>
-<hr>
-<h1 id="Variational-Auto-Encoder"><a href="#Variational-Auto-Encoder" class="headerlink" title="Variational Auto Encoder"></a>Variational Auto Encoder</h1><p>AE 和 VAE 最本质的区别是 <strong>AE 经过编码后，隐变量分布我们并不清楚，这个时候我们随机采样一个隐变量 z 生成数据是没有很大的意义的，生成的东西基本是乱的。但是 VAE 我们用假定的分布（例如高斯）去近似隐变量 z 的分布，这个时候我们用近似的分布采样得到隐变量后通过 decoder 去生成数据，会发现数据就有了含义，于是 VAE 就算是生成模型了</strong></p>
-<p>为了解决 AE 所带来的问题，我们要给我们的编码解码网络加上一个限制，也就是强制让 z 能服从一个分布，这个分布一般来讲就是标准正态分布。之前的 AE 的 objecctive function 只是重构图片和原图片的 generative loss，现在加上一个 KL divergence 来描述 <code>z</code> 和标准高斯之间的分布差 latent loss。</p>
-<p><img src="/2019/03/04/E-Variational-Auto-Encoding/img2.jpg" align="justify"></p>
-<p>我们假设数据是由隐变量 <code>z</code>（latent variable）决定的，从隐变量到观测数据 <code>x</code> 之间的映射也就是 decoder 可以由如下公式给出：<br>$$ p(x) = \int p(x|z) p(z) dz $$</p>
-<p>对于 encoder ，我们要根据数据 x 得到隐变量的分布，我们用标准正态分布来近似，于是，每一个 $x^i$ 我们都对应这一个高斯分布：<br>$$\log{q_{\phi}(z|x^{i})} = \log{N(z;\mu^i,\sigma^{2i}I)}$$</p>
-<p>至于这个高斯分布的系数是怎么得到的，我们这里用神经网络来学习得到。接着再根据这个分布，我们进行一个采样，采样得到新的隐变量，同时这个隐变量会在 encoder 得到的隐变量的附近，不会离得太原，也就是说我们给这个网络加上了噪声，结果就是这个网络会变的 robust。</p>
-<p>它本质上就是在我们常规的自编码器的基础上，对 encoder 的结果（在VAE中对应着计算均值的网络）加上了“高斯噪声”，使得结果 decoder 能够对噪声有鲁棒性；而那个额外的 KL loss（目的是让均值为 0，方差为 1），事实上就是相当于对 encoder 的一个正则项，希望 encoder 出来的东西均有零均值</p>
-<p><img src="/2019/03/04/E-Variational-Auto-Encoding/img4.jpg" align="justify"><br><img src="/2019/03/04/E-Variational-Auto-Encoding/img5.jpg" align="justify"></p>
-<blockquote>
-<p>完整 VAE papeline</p>
-</blockquote>
-<h2 id="Reparameterization-trick"><a href="#Reparameterization-trick" class="headerlink" title="Reparameterization trick"></a>Reparameterization trick</h2><p>上面说到我们要对模型做一个采样，如果不采样的话，最后 train 出来的结果会变成这个样子：每个 $x^i$ 对应的 $\mu$ 会不同，但是 $\sigma$ 就都为 0 了，这样模型就又回到 AE 上面去了，所以我们要进行一个采样，来保证模型的鲁棒性。</p>
-<p>但是采样有一个问题，就是丢失了 BP，为了解决这个问题，我们让 z 的生成表示成 $\mu$ $\sigma$ 和 一个随机数 $\varepsilon$, 也就是 $z = \mu + \sigma \varepsilon$ 其中 $\varepsilon$ 也是从正态高斯分布中采样得到的。</p>
-<p><img src="/2019/03/04/E-Variational-Auto-Encoding/img3.jpg" align="justify"></p>
-<blockquote>
-<p>蓝色节点表示采样过程 <br><br>左边是 Reparameterization 之前的模型</p>
-</blockquote>
-<h1 id="Core-Code-of-VAE"><a href="#Core-Code-of-VAE" class="headerlink" title="Core Code of VAE"></a>Core Code of VAE</h1><p><strong>latent loss</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(mean**2 + logvar.exp() - 1 - logvar) / 2</span><br></pre></td></tr></table></figure></p>
-<p><strong>reconstruction loss</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nn.BCELoss(x_reconstructed, x) / x.size(0)</span><br></pre></td></tr></table></figure>
-<p><strong>whole VAE model</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">encoded = self.encoder(x)</span><br><span class="line">mean, logvar = self.q(encoded)</span><br><span class="line">z = sample(mean, logvar)</span><br><span class="line">x_reconstructed = self.decoder(z)</span><br></pre></td></tr></table></figure></p>
-<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="http://kvfrans.com/variational-autoencoders-explained/" target="_blank" rel="noopener">http://kvfrans.com/variational-autoencoders-explained/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/34998569" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/34998569</a></p>
-<p>[Feifei Li et al’s cs231n notes]</p>
-<p><a href="https://arxiv.org/pdf/1312.6114" target="_blank" rel="noopener">Auto-Encoding Variational Bayes</a></p>
-<p><a href="https://github.com/kuc2477/pytorch-vae" target="_blank" rel="noopener">https://github.com/kuc2477/pytorch-vae</a></p>
+        <h1 id="3-7-Hierarchical-Recurrent-Attention-Network-for-Response-Generation"><a href="#3-7-Hierarchical-Recurrent-Attention-Network-for-Response-Generation" class="headerlink" title="3-7 Hierarchical Recurrent Attention Network for Response Generation"></a>3-7 Hierarchical Recurrent Attention Network for Response Generation</h1><p>Multi-turn conversation 的任务有两个复杂之处</p>
+<ol>
+<li>对话内容是多层次的</li>
+<li>不是所有内容都是同等重要的</li>
+</ol>
+<p>2015 年，Neural responding machine for short-text conversation 这篇论文最先把 attention 机制应用在了 single-turn response generation  上， 这篇论文提到的 HRAN<br>把 attention 机制应用在了 multi-turn response generation 上。</p>
+<p>在 RNN 的最底层，单词层面的 RNN 将每一句话编码成一个序列的 hiden state 向量。。。</p>
+<p>这个其实就是把 attention 机制从序列（2D）扩展到了多序列（3D），扩展的方式是，每个句子一个句子层面上的 attention，句子里面每个单词有一个单词层面上的 attention，然后结合起来就成了。。</p>
+<p><img src="/2019/03/07/P-1/img1.jpg" align="justify"></p>
 
       
     </div>
@@ -536,9 +526,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/VAE/" rel="tag"># VAE</a>
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+            <a href="/tags/AAAI/" rel="tag"># AAAI</a>
           
         </div>
       
@@ -563,8 +553,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/04/tricks-on-pytorch/" rel="next" title="tricks on pytorch">
-                <i class="fa fa-chevron-left"></i> tricks on pytorch
+              <a href="/2019/03/04/E-Variational-Auto-Encoding/" rel="next" title="Variational Auto Encoding">
+                <i class="fa fa-chevron-left"></i> Variational Auto Encoding
               </a>
             
           </div>
@@ -573,8 +563,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/07/P-1/" rel="prev" title="paper reading-1">
-                paper reading-1 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/11/E-GAN-for-sequence/" rel="prev" title="GAN for sequence">
+                GAN for sequence <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -756,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Auto-Encoder"><span class="nav-number">1.</span> <span class="nav-text">Auto Encoder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variational-Auto-Encoder"><span class="nav-number">2.</span> <span class="nav-text">Variational Auto Encoder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reparameterization-trick"><span class="nav-number">2.1.</span> <span class="nav-text">Reparameterization trick</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Code-of-VAE"><span class="nav-number">3.</span> <span class="nav-text">Core Code of VAE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-7-Hierarchical-Recurrent-Attention-Network-for-Response-Generation"><span class="nav-number">1.</span> <span class="nav-text">3-7 Hierarchical Recurrent Attention Network for Response Generation</span></a></li></ol></div>
             
 
           </div>
@@ -938,9 +928,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/";
-    this.page.identifier = "2019/03/04/E-Variational-Auto-Encoding/";
-    this.page.title = 'Variational Auto Encoding';
+    this.page.url = "http://yoursite.com/2019/03/07/P-1/";
+    this.page.identifier = "2019/03/07/P-1/";
+    this.page.title = 'paper reading-1';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
