@@ -96,23 +96,23 @@
 
 
 
-  <meta name="description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
+  <meta name="description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE（autoencoder），AE 的本质的作用是利用数据的低秩性对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 的结构可以看作是从一张图片编码成一个向量，再由这个向量恢复">
 <meta name="keywords" content="VAE,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Variational Auto Encoding">
 <meta property="og:url" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/index.html">
 <meta property="og:site_name" content="Eulring">
-<meta property="og:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
+<meta property="og:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE（autoencoder），AE 的本质的作用是利用数据的低秩性对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 的结构可以看作是从一张图片编码成一个向量，再由这个向量恢复">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img4.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img5.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img3.jpg">
-<meta property="og:updated_time" content="2019-03-06T01:25:21.199Z">
+<meta property="og:updated_time" content="2019-04-17T11:16:20.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Variational Auto Encoding">
-<meta name="twitter:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程">
+<meta name="twitter:description" content="Auto Encoder在讲 VAE 之前，我们先来回顾一下 AE（autoencoder），AE 的本质的作用是利用数据的低秩性对数据进行编码，也就是把数据x压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据x是由带有分布的隐变量z所产生的$$z\sim p(z),  x\sim p(x|z)$$ autoencoder 的结构可以看作是从一张图片编码成一个向量，再由这个向量恢复">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/04/E-Variational-Auto-Encoding/img1.jpg">
 
 
@@ -415,7 +415,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-06 09:25:21" itemprop="dateModified" datetime="2019-03-06T09:25:21+08:00">2019-03-06</time>
+                <time title="Modified: 2019-04-17 19:16:20" itemprop="dateModified" datetime="2019-04-17T19:16:20+08:00">2019-04-17</time>
               
             
           </span>
@@ -480,15 +480,15 @@
       
 
       
-        <h1 id="Auto-Encoder"><a href="#Auto-Encoder" class="headerlink" title="Auto Encoder"></a>Auto Encoder</h1><p>在讲 VAE 之前，我们先来回顾一下 AE，AE 的本质就是对数据进行编码，也就是把数据<code>x</code>压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据<code>x</code>是由带有分布的隐变量<code>z</code>所产生的<br>$$z\sim p(z),  x\sim p(x|z)$$</p>
-<p>autoencoder 可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程（encoder）从向量到图片的过程是解码的过程（decoder），在这个原始的过程中，向量是没有含义的，他的作用是编码，没有编码以外<br>的功能</p>
+        <h1 id="Auto-Encoder"><a href="#Auto-Encoder" class="headerlink" title="Auto Encoder"></a>Auto Encoder</h1><p>在讲 VAE 之前，我们先来回顾一下 AE（autoencoder），AE 的本质的作用是利用数据的低秩性对数据进行编码，也就是把数据<code>x</code>压缩成一个维度比较小的向量来表示。AE 的理论基础是假设观测的数据<code>x</code>是由带有分布的隐变量<code>z</code>所产生的<br>$$z\sim p(z),  x\sim p(x|z)$$</p>
+<p>autoencoder 的结构可以看作是从一张图片编码成一个向量，再由这个向量恢复成原来的图片。从图片到向量的过程可以看作是编码的过程（encoder）从向量到图片的过程是解码的过程（decoder），在这个原始的过程中，向量是没有含义的，他的作用是编码，所以算不上是生成模型。</p>
 <p>在机器学习的技术尤其是神经网络兴起以后，编码和解码都可以由神经网络来代替，编码的过程和解码的过程可以整合到一个 loss function 中来进行训练，这个 loss 可以看作是数据编码成隐变量然后解码后的数据于原始数据之间的差距。</p>
 <p><img src="/2019/03/04/E-Variational-Auto-Encoding/img1.jpg" align="justify"></p>
 <p>仔细考虑一下，Auto Encoder 的本质其实就是 PCA，把数据降维以后，选取数据中明显的特征来作为数据的表示。</p>
-<p>AE 由一个缺点，就是我们没能掌握 <code>z</code> 的分布。</p>
+<p>综上所述，对于 AE 如果我们希望他能在生成模型领域施展作用，它有一个很明显的缺点，就是我们没能掌握 <code>z</code> 的分布。</p>
 <hr>
 <h1 id="Variational-Auto-Encoder"><a href="#Variational-Auto-Encoder" class="headerlink" title="Variational Auto Encoder"></a>Variational Auto Encoder</h1><p>AE 和 VAE 最本质的区别是 <strong>AE 经过编码后，隐变量分布我们并不清楚，这个时候我们随机采样一个隐变量 z 生成数据是没有很大的意义的，生成的东西基本是乱的。但是 VAE 我们用假定的分布（例如高斯）去近似隐变量 z 的分布，这个时候我们用近似的分布采样得到隐变量后通过 decoder 去生成数据，会发现数据就有了含义，于是 VAE 就算是生成模型了</strong></p>
-<p>为了解决 AE 所带来的问题，我们要给我们的编码解码网络加上一个限制，也就是强制让 z 能服从一个分布，这个分布一般来讲就是标准正态分布。之前的 AE 的 objecctive function 只是重构图片和原图片的 generative loss，现在加上一个 KL divergence 来描述 <code>z</code> 和标准高斯之间的分布差 latent loss。</p>
+<p>为了解决 AE 所带来的问题，我们要给我们的编码解码网络加上一个限制，也就是强制让 z 能服从一个分布，这个分布一般来讲就是标准正态分布。之前的 AE 的 objective function 只是重构图片和原图片的 generative loss，现在加上一个 KL divergence 来描述 <code>z</code> 和标准高斯之间的分布差 latent loss。</p>
 <p><img src="/2019/03/04/E-Variational-Auto-Encoding/img2.jpg" align="justify"></p>
 <p>我们假设数据是由隐变量 <code>z</code>（latent variable）决定的，从隐变量到观测数据 <code>x</code> 之间的映射也就是 decoder 可以由如下公式给出：<br>$$ p(x) = \int p(x|z) p(z) dz $$</p>
 <p>对于 encoder ，我们要根据数据 x 得到隐变量的分布，我们用标准正态分布来近似，于是，每一个 $x^i$ 我们都对应这一个高斯分布：<br>$$\log{q_{\phi}(z|x^{i})} = \log{N(z;\mu^i,\sigma^{2i}I)}$$</p>
@@ -573,10 +573,6 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/07/P-1/" rel="prev" title="papers (cGAN for Image Caption)">
-                papers (cGAN for Image Caption) <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -653,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -672,9 +668,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -699,13 +693,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
