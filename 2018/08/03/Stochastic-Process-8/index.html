@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Conditional Expectation Given An EventIf $Y$ is a discrete r.v.$$E(Y|A) = \sum_y P(Y=y|A)$$If $Y$ is continuous r.v.$$E(Y|A) = \int_{-\infty}^{\infty} yf(y|A)dy$$ ApproximationImage a large number of">
+<meta name="keywords" content="MATH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stochastic-Process (Conditional Expectation)">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/Stochastic-Process-8/index.html">
+<meta property="og:site_name" content="Eulring">
+<meta property="og:description" content="Conditional Expectation Given An EventIf $Y$ is a discrete r.v.$$E(Y|A) = \sum_y P(Y=y|A)$$If $Y$ is continuous r.v.$$E(Y|A) = \int_{-\infty}^{\infty} yf(y|A)dy$$ ApproximationImage a large number of">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-10T07:19:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stochastic-Process (Conditional Expectation)">
+<meta name="twitter:description" content="Conditional Expectation Given An EventIf $Y$ is a discrete r.v.$$E(Y|A) = \sum_y P(Y=y|A)$$If $Y$ is continuous r.v.$$E(Y|A) = \int_{-\infty}^{\infty} yf(y|A)dy$$ ApproximationImage a large number of">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/03/Stochastic-Process-8/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Stochastic-Process (Conditional Expectation) | Eulring</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eulring</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/eulring" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/Stochastic-Process-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JunYi Bian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/E.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eulring">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Stochastic-Process (Conditional Expectation)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-03 20:33:40" itemprop="dateCreated datePublished" datetime="2018-08-03T20:33:40+08:00">2018-08-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-10 15:19:37" itemprop="dateModified" datetime="2018-10-10T15:19:37+08:00">2018-10-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/08/03/Stochastic-Process-8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/03/Stochastic-Process-8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/08/03/Stochastic-Process-8/" class="leancloud_visitors" data-flag-title="Stochastic-Process (Conditional Expectation)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Conditional-Expectation-Given-An-Event"><a href="#Conditional-Expectation-Given-An-Event" class="headerlink" title="Conditional Expectation Given An Event"></a>Conditional Expectation Given An Event</h1><p>If $Y$ is a discrete r.v.<br>$$E(Y|A) = \sum_y P(Y=y|A)$$<br>If $Y$ is continuous r.v.<br>$$E(Y|A) = \int_{-\infty}^{\infty} yf(y|A)dy$$</p>
+<h3 id="Approximation"><a href="#Approximation" class="headerlink" title="Approximation"></a>Approximation</h3><p>Image a large number of $n$ of replication of experiments $y_1,…,y_n$<br>$$E(Y)\approx \frac{1}{n}\sum_{j=1}^n y_j$$<br>If $I_j$ is the indicator of $A$ occurring<br>$$E(Y|A) \approx \frac{\sum_{j=1}^n y_j I_j}{\sum_{j=1}^n I_j}$$</p>
+<h3 id="Example-Life-Expectation"><a href="#Example-Life-Expectation" class="headerlink" title="Example (Life Expectation)"></a>Example (Life Expectation)</h3><p>Yang is 24 years old, he hear average life expectancy is $80$, Should he conclude he has 50 years of life left ?</p>
+<p>Of Course not, cause he already live $24$ years and some people may die less than $24$<br>$$E(T) &lt; E(T|T\geq 30)$$</p>
+<h3 id="Law-of-Total-Expectation"><a href="#Law-of-Total-Expectation" class="headerlink" title="Law of Total Expectation"></a>Law of Total Expectation</h3><p>Let $A_1,…,A_n$ be partition of a sample space, $Y$ be a random variable on sample space. Then<br>$$E(Y) = \sum_{i=1}^n E(Y|A_i) P(A_i)$$</p>
+<h3 id="Example-Geometric-Expectation-Redux"><a href="#Example-Geometric-Expectation-Redux" class="headerlink" title="Example (Geometric Expectation Redux)"></a>Example (Geometric Expectation Redux)</h3><p>Let $X\sim Geom(p)$, as the number of Tails before the first Heads in a sequence of coin flips with p. $p$ of head. To get $E(X)$ from sum of series, it also can be obtained in another way. We condition on the outcome of the first toss: if it lands heads, then $X$ is $0$ and we’re done ; if it lands Tails, then we wasted one toss and back to where we started by memorylessness Therefore<br>$$\begin{align}<br>E(X) &amp;= E(X|\text{first toss }H)\cdot p + E(X|\text{first toss }T)\cdot q \\<br>     &amp;= 0 \cdot p + (1+E(X)) \cdot q<br>\end{align}$$</p>
+<p>which gives $E(X) = q/p$</p>
+<h3 id="Example-Time-until-HH-vs-HT"><a href="#Example-Time-until-HH-vs-HT" class="headerlink" title="Example (Time until HH vs. HT)"></a>Example (Time until HH vs. HT)</h3><p>You toss a fair coin repeatedly. What is the expected number of tosses until the pattern HT/HH appears for the first times ?</p>
+<p><strong>Times until HT</strong></p>
+<ul>
+<li>$W_{HT}$: number of tosses untill HT appears</li>
+<li>$W_1$: waiting time for first H</li>
+<li><p>$W_2$: additional waiting time for the first T</p>
+<p>Then</p>
+<p>$W_1\sim Fs(\frac{1}{2}),E[W_1] = 2$</p>
+<p>$W_2\sim Fs(\frac{1}{2}),E[W_2] = 2$</p>
+<p>$$E[W_{HT}] = E[W_1+W_2]=E[W_1] + E[W_2] = 4$$</p>
+</li>
+</ul>
+<p><strong>Times until HH</strong></p>
+<p>$$E[W_{HH}] = E[W_HH|\text{first toss }H]\cdot \frac{1}{2} + E[W_HH|\text{first toss }T]\cdot \frac{1}{2}$$</p>
+<p>  where<br>  $$E[W_{HH}|\text{first toss }T] = 1 + E[W_{HH}]$$<br>  and<br>  $$\begin{align}<br>  E[W_{HH}|\text{first toss }H] =&amp; E[W_{HH}|\text{first toss }H, \text{second toss }H]\cdot \frac{1}{2} \\<br>  &amp;+ E[W_{HH}|\text{first toss }H, \text{second toss }T]\cdot \frac{1}{2} \\<br>  =&amp; 2\cdot \frac{1}{2} + (E[W_{HH}]+2)\cdot \frac{1}{2}<br>  \end{align}$$</p>
+<p>  Thus we get $E[W_{HH}] = 6$</p>
+<p><strong><em>As we can see the above example use the memorylessness property of the Conditional Expectation of distribution, and construct target in both side to calculate the target</em></strong></p>
+<hr>
+<h1 id="Conditional-Expectation-Given-An-R-V"><a href="#Conditional-Expectation-Given-An-R-V" class="headerlink" title="Conditional Expectation Given An R.V."></a>Conditional Expectation Given An R.V.</h1><p>Let $g(x) = E(Y|X=x)$ Then the conditional expectation of $Y$ given $X$, denoted $E(Y|E)$ is defined to be the random variable $g(X)$</p>
+<h3 id="Example-Stick-Length"><a href="#Example-Stick-Length" class="headerlink" title="Example (Stick Length)"></a>Example (Stick Length)</h3><p>Suppose we have a stick of length $1$ and break the stick at a point $X$ chosen uniformly at random. Given that $X=x$, we then choose another breakpoint $Y$ uniformly on the interval $[0,x]$, find $E(Y|X)$, and its mean and variance</p>
+<p>  $$E(Y|X) = X/2$$</p>
+<p>  $$E(E(Y|X)) = E(X/2) = \frac{1}{4}$$</p>
+<p>  $$Var(E(Y|X)) = Var(X/2) = \frac{1}{48}$$</p>
+<hr>
+<h1 id="Properties-of-Conditional-Expectation"><a href="#Properties-of-Conditional-Expectation" class="headerlink" title="Properties of Conditional Expectation"></a>Properties of Conditional Expectation</h1><h3 id="Theorem-Dropping-independent"><a href="#Theorem-Dropping-independent" class="headerlink" title="Theorem (Dropping independent)"></a>Theorem (Dropping independent)</h3><p>If $X$ and $Y$ are independent, then $E(Y|X)=E(Y)$</p>
+<h3 id="Taking-Out-What’s-Known"><a href="#Taking-Out-What’s-Known" class="headerlink" title="Taking Out What’s Known"></a>Taking Out What’s Known</h3><p>$$E(h(X)Y|X) = h(X) E(Y|X)$$</p>
+<h3 id="Theorem-Linearity"><a href="#Theorem-Linearity" class="headerlink" title="Theorem (Linearity)"></a>Theorem (Linearity)</h3><p>$$E(Y_1+Y_2|X) = E(Y_1|X) + E(Y_2|X)$$</p>
+<h3 id="Theorem-Adam’s-Law"><a href="#Theorem-Adam’s-Law" class="headerlink" title="Theorem (Adam’s Law)"></a>Theorem (Adam’s Law)</h3><p>For any r.v.s $X$ and $Y$<br>$$E(E(Y|X)) = E(Y)$$</p>
+<p><strong>Proof by LOTP</strong></p>
+<p>  For $X$ discrete<br>  $$E(Y) = \sum_x E(Y|X=x) P(X=x)$$<br>  We let $E(Y|X=x) = g(x)$, then<br>  $$E(E(Y|X)) = E(g(X)) = \sum_x g(x) P(X=x) = \sum_x E(Y|X=x) P(X=x)$$<br>  So<br>  $$E(E(Y|X)) = E(Y)$$</p>
+<h3 id="Theorem-Adam’s-Law-with-Extra-Conditioning"><a href="#Theorem-Adam’s-Law-with-Extra-Conditioning" class="headerlink" title="Theorem (Adam’s Law with Extra Conditioning)"></a>Theorem (Adam’s Law with Extra Conditioning)</h3><p>For any r.v.s $X,Y,Z$</p>
+<p>$$E(E(Y|X,Z)|Z) = E(Y|Z)$$<br>$$E(E(X|Z,Y)|Y) = E(X|Y)$$</p>
+<h3 id="Definition-Conditional-Variance"><a href="#Definition-Conditional-Variance" class="headerlink" title="Definition (Conditional Variance)"></a>Definition (Conditional Variance)</h3><p>$$Var(Y|X) = E((Y-E(Y|X))^2|X)$$<br>this equivalent to<br>$$Var(Y|X) = E(Y^2|X) - (E(Y|X))^2$$</p>
+<h3 id="Theorem-Eve’s-Low"><a href="#Theorem-Eve’s-Low" class="headerlink" title="Theorem (Eve’s Low)"></a>Theorem (Eve’s Low)</h3><p>$$Var(Y) = E(Var(Y|X)) + Var(E(Y|X))$$</p>
+<h3 id="Example-Random-Sum"><a href="#Example-Random-Sum" class="headerlink" title="Example (Random Sum)"></a>Example (Random Sum)</h3><p>A store receives $N$ customers a day, $N$ is an r.v. with finite mean and variance. Let $X_j$ be the amount spend by the $j^{th}$ customer, $X_j$ has the mean $\mu$ and variance $\sigma^2$, $N$ and $X_j$ are independent of one another. Find the random sum $X = \sum_{j=1}^N X_j$ in terms of $\mu,\sigma^2,E(N),Var(N)$</p>
+<p><strong>For E(X)</strong></p>
+<p>  $$E(X|N) = E\left( \sum_{j=1}^N X_j|N \right) = \sum_{j=1}^N E(X_j|N)= \sum_{j=1}^N E(X_j) = N\mu$$</p>
+<p>  Finally, by Adam’s Law<br>  $$E(X) = E(E(X|N)) = E(N\mu) =\mu E(N)$$</p>
+<p><strong>For Var(X)</strong></p>
+<p>  We conditon on $N$ get $Var(X|N)$</p>
+<p>  $$Var(X|N) = Var\left( \sum_{j=1}^N X_j|N \right) = \sum_{j=1}^N Var(X_j|N) = \sum_{j=1}^N Var(X_j) = N\sigma^2$$</p>
+<p>  Eve’s Law give the unconditional variance of $X$</p>
+<p>  $$\begin{align}<br>    Var(X) =&amp; E(Var(X|N)) + Var(E(X|N))\\<br>           =&amp; E(N\sigma^2) + Var(N\mu) \\<br>           =&amp; \sigma^2 E(N) + \mu^2 Var(N)<br>  \end{align}$$</p>
+<hr>
+<h1 id="Prediction-and-Estimation"><a href="#Prediction-and-Estimation" class="headerlink" title="Prediction and Estimation"></a>Prediction and Estimation</h1><h3 id="Theorem-Projection-Interpretation"><a href="#Theorem-Projection-Interpretation" class="headerlink" title="Theorem (Projection Interpretation)"></a>Theorem (Projection Interpretation)</h3><p>For any function $h$, the r.v. $Y-E(Y|X)$ is Uncorrelated with $h(X)$: $Cov(Y-E(Y|X),h(X)) = 0$, equivalently<br>$$E((Y-E(Y|X))h(X)) = 0$$</p>
+<p>.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MATH/" rel="tag"># MATH</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/Stochastic-Process-7/" rel="next" title="Stochastic-Process (Conjugacy & Bayesian)">
+                <i class="fa fa-chevron-left"></i> Stochastic-Process (Conjugacy & Bayesian)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/04/Stochastic-Process-10/" rel="prev" title="Stochastic-Process-10">
+                Stochastic-Process-10 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/E.jpg" alt="JunYi Bian">
+            
+              <p class="site-author-name" itemprop="name">JunYi Bian</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/eulring" title="GitHub &rarr; https://github.com/eulring" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Conditional-Expectation-Given-An-Event"><span class="nav-number">1.</span> <span class="nav-text">Conditional Expectation Given An Event</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Approximation"><span class="nav-number">1.0.1.</span> <span class="nav-text">Approximation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Life-Expectation"><span class="nav-number">1.0.2.</span> <span class="nav-text">Example (Life Expectation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Total-Expectation"><span class="nav-number">1.0.3.</span> <span class="nav-text">Law of Total Expectation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Geometric-Expectation-Redux"><span class="nav-number">1.0.4.</span> <span class="nav-text">Example (Geometric Expectation Redux)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Time-until-HH-vs-HT"><span class="nav-number">1.0.5.</span> <span class="nav-text">Example (Time until HH vs. HT)</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Conditional-Expectation-Given-An-R-V"><span class="nav-number">2.</span> <span class="nav-text">Conditional Expectation Given An R.V.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Stick-Length"><span class="nav-number">2.0.1.</span> <span class="nav-text">Example (Stick Length)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Properties-of-Conditional-Expectation"><span class="nav-number">3.</span> <span class="nav-text">Properties of Conditional Expectation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Dropping-independent"><span class="nav-number">3.0.1.</span> <span class="nav-text">Theorem (Dropping independent)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Taking-Out-What’s-Known"><span class="nav-number">3.0.2.</span> <span class="nav-text">Taking Out What’s Known</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Linearity"><span class="nav-number">3.0.3.</span> <span class="nav-text">Theorem (Linearity)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Adam’s-Law"><span class="nav-number">3.0.4.</span> <span class="nav-text">Theorem (Adam’s Law)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Adam’s-Law-with-Extra-Conditioning"><span class="nav-number">3.0.5.</span> <span class="nav-text">Theorem (Adam’s Law with Extra Conditioning)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Conditional-Variance"><span class="nav-number">3.0.6.</span> <span class="nav-text">Definition (Conditional Variance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Eve’s-Low"><span class="nav-number">3.0.7.</span> <span class="nav-text">Theorem (Eve’s Low)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Random-Sum"><span class="nav-number">3.0.8.</span> <span class="nav-text">Example (Random Sum)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prediction-and-Estimation"><span class="nav-number">4.</span> <span class="nav-text">Prediction and Estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Projection-Interpretation"><span class="nav-number">4.0.1.</span> <span class="nav-text">Theorem (Projection Interpretation)</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank"> </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-Eulring"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JunYi Bian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'eulring',
+      repo: 'eulring.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '790d524f77828f326729967912a298eec6a572d6',
+      
+        client_id: '82137fb0220d8bed7c85'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + '')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': '',
+                'X-LC-Key': '',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: ,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

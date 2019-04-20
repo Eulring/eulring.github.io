@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="i.i.d sequence of random variables: too restrictive assumption completely dependent among random variables: hard to analysis balance between complete independence &amp;amp; complete dependence Classificat">
+<meta name="keywords" content="MATH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stochastic-Process-11">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/index.html">
+<meta property="og:site_name" content="Eulring">
+<meta property="og:description" content="i.i.d sequence of random variables: too restrictive assumption completely dependent among random variables: hard to analysis balance between complete independence &amp;amp; complete dependence Classificat">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img4.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img5.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img6.jpg">
+<meta property="og:updated_time" content="2019-04-20T14:10:26.662Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stochastic-Process-11">
+<meta name="twitter:description" content="i.i.d sequence of random variables: too restrictive assumption completely dependent among random variables: hard to analysis balance between complete independence &amp;amp; complete dependence Classificat">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/04/Stochastic-Process-11/sp11img1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/Stochastic-Process-11/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Stochastic-Process-11 | Eulring</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eulring</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/eulring" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/Stochastic-Process-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JunYi Bian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/E.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eulring">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Stochastic-Process-11
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-04 16:05:19" itemprop="dateCreated datePublished" datetime="2018-08-04T16:05:19+08:00">2018-08-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-20 22:10:26" itemprop="dateModified" datetime="2019-04-20T22:10:26+08:00">2019-04-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/08/04/Stochastic-Process-11/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/04/Stochastic-Process-11/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/08/04/Stochastic-Process-11/" class="leancloud_visitors" data-flag-title="Stochastic-Process-11">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>i.i.d sequence of random variables: too restrictive assumption</p>
+<p>completely dependent among random variables: hard to analysis</p>
+<p>balance between complete independence &amp; complete dependence</p>
+<p>Classification of Markov Process</p>
+<ul>
+<li>Discrete-Time Markov Chain: Discrete $S$ &amp; Discrete $T$</li>
+<li>Continuous-Time Markov Chain: Discrete $S$ &amp; Continuous $T$</li>
+<li>Discrete Markov Chain: Continuous $S$ &amp; Discrete $T$</li>
+<li>Continuous Markov Chain: Continuous $S$ &amp; Continuous $T$</li>
+</ul>
+<h3 id="Definition-Markov-Chain"><a href="#Definition-Markov-Chain" class="headerlink" title="Definition (Markov Chain)"></a>Definition (Markov Chain)</h3><p>A sequence of random variables $X_0,X_1,X_2,…$ taking values in the state space ${1,2,…,M}$ is called <strong>Markov Chain</strong>, the event $X_i+1$ only influenced by $X_i$<br>$$P(X_{n+1}=j|X_n = i,X_{n-1}=i_{n-1},…,X_0=i_0) = P(X_{n+1}=j|X_n=i)$$</p>
+<h3 id="Definition-Transition-Matrix"><a href="#Definition-Transition-Matrix" class="headerlink" title="Definition (Transition Matrix)"></a>Definition (Transition Matrix)</h3><p>Let $X_0,X_1,X_2,…$ be a Markov Chain with state space ${1,2,…,M}$, and let<br>$q_{ij} = P(X_{n+1}=j|X_N=i)$ be the transition probability from state $i$ to state $j$. The $M \times M$ matrix $Q=(q_{ij})$ is called transition matrix of the chain.</p>
+<p><img src="/2018/08/04/Stochastic-Process-11/sp11img1.jpg" align="justify"></p>
+<h3 id="Definition-n-step-Transition-Probability"><a href="#Definition-n-step-Transition-Probability" class="headerlink" title="Definition (n-step Transition Probability)"></a>Definition (n-step Transition Probability)</h3><p>The n-step transition probability from $i$ to $j$ is the probability of being at $j$ exactly $n$ steps after being at $i$. Denote this by $q^{(n)}_{ij}$<br>$$q^{(n)}_{ij} = P(X_n=j|X_0=i)=\sum_{k\in S} q^{(1)}_{kj} q^{(n-1)}_{ik}$$<br>which implies<br>$$Q^n = Q^{n-1}\cdot Q$$</p>
+<h3 id="Theorem-Chapman-Kolmogorov-Equation"><a href="#Theorem-Chapman-Kolmogorov-Equation" class="headerlink" title="Theorem (Chapman-Kolmogorov Equation)"></a>Theorem (Chapman-Kolmogorov Equation)</h3><p>$$q_{ij}^{(n+m)} = \sum_{k\in S} q^{(n)}_{ik} q^{(m)}_{kj}$$</p>
+<h1 id="First-Step-Analysis"><a href="#First-Step-Analysis" class="headerlink" title="First Step Analysis"></a>First Step Analysis</h1><h3 id="Example-Toss-A-Coin-till-HH-Appear"><a href="#Example-Toss-A-Coin-till-HH-Appear" class="headerlink" title="Example (Toss A Coin till HH Appear)"></a>Example (Toss A Coin till HH Appear)</h3><p>This problem can be formulated as a 3-state markov chain<br><img src="/2018/08/04/Stochastic-Process-11/sp11img2.jpg" align="justify"><br>The Transition graph is equivalent to<br><img src="/2018/08/04/Stochastic-Process-11/sp11img3.jpg" align="justify"><br>Let $e_s = E[\text{waiting time for HH|initial state = s}]$, then we have<br>$$\begin{align}<br>e_{Null} &amp;= \frac{1}{2} (1+e_{Null})+\frac{1}{2} (1+e_H) \\<br>e_H &amp;= \frac{1}{2} (1+e_{HH}) + \frac{1}{2} (1+e_{Null})\\<br>e_{HH} &amp;= 0<br>\end{align}$$</p>
+<h3 id="Example-Toss-A-Coin-till-HTHT-Appear"><a href="#Example-Toss-A-Coin-till-HTHT-Appear" class="headerlink" title="Example (Toss A Coin till HTHT Appear)"></a>Example (Toss A Coin till HTHT Appear)</h3><p>Let see a more complicate case , this can be done by establish a linear equation</p>
+<p><img src="/2018/08/04/Stochastic-Process-11/sp11img4.jpg" align="justify"></p>
+<h1 id="Classification-of-States"><a href="#Classification-of-States" class="headerlink" title="Classification of States"></a>Classification of States</h1><h3 id="Definition-Recurrent-and-Transition-States"><a href="#Definition-Recurrent-and-Transition-States" class="headerlink" title="Definition (Recurrent and Transition States)"></a>Definition (Recurrent and Transition States)</h3><ul>
+<li><strong>Recurrent</strong> State $i$ of Markov chain have the probability of $1$ eventually return to $i$</li>
+<li><strong>Transient</strong> Other-wise, the state is Transient</li>
+</ul>
+<p><img src="/2018/08/04/Stochastic-Process-11/sp11img5.jpg" align="justify"></p>
+<h3 id="Definition-Irreducible-amp-Reducible-Chain"><a href="#Definition-Irreducible-amp-Reducible-Chain" class="headerlink" title="Definition (Irreducible &amp; Reducible Chain)"></a>Definition (Irreducible &amp; Reducible Chain)</h3><ul>
+<li><strong>Irreducible</strong> any state $i$ and $j$, possible to go from $i$ to $j$ in a finite number of steps.</li>
+<li><strong>Reducible</strong> not irreducible</li>
+</ul>
+<h3 id="Theorem-Irreducible-Implies-All-States-Recurrent"><a href="#Theorem-Irreducible-Implies-All-States-Recurrent" class="headerlink" title="Theorem (Irreducible Implies All States Recurrent)"></a>Theorem (Irreducible Implies All States Recurrent)</h3><p>In an irreducible Markov Chain with a finite state space, all states are recurrent</p>
+<h3 id="Example-Coupon-Collector"><a href="#Example-Coupon-Collector" class="headerlink" title="Example (Coupon Collector)"></a>Example (Coupon Collector)</h3><p>We want to collect all $C$ types coupons, Let $X_n$ be the number of distinct coupon types in our collection after $n$ attempts. Then $X_0,X_1,…$ is a Markov Chain on the state space ${ 0,1,…,C }$<br><img src="/2018/08/04/Stochastic-Process-11/sp11img6.jpg" align="justify"></p>
+<h3 id="Definition-Period"><a href="#Definition-Period" class="headerlink" title="Definition (Period)"></a>Definition (Period)</h3><p>The <strong>period</strong> of state $i$ in a markov chain is the gcd of the possible numbers of steps can return to $i$ when starting at $i$. A state is called <strong>aperiodic</strong> if its period equals 1, and periodic otherwise.</p>
+<p>.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MATH/" rel="tag"># MATH</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/04/Stochastic-Process-10/" rel="next" title="Stochastic-Process-10">
+                <i class="fa fa-chevron-left"></i> Stochastic-Process-10
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/03/hello/" rel="prev" title="hello.">
+                hello. <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/E.jpg" alt="JunYi Bian">
+            
+              <p class="site-author-name" itemprop="name">JunYi Bian</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/eulring" title="GitHub &rarr; https://github.com/eulring" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Markov-Chain"><span class="nav-number">1.</span> <span class="nav-text">Definition (Markov Chain)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Transition-Matrix"><span class="nav-number">2.</span> <span class="nav-text">Definition (Transition Matrix)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-n-step-Transition-Probability"><span class="nav-number">3.</span> <span class="nav-text">Definition (n-step Transition Probability)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Chapman-Kolmogorov-Equation"><span class="nav-number">4.</span> <span class="nav-text">Theorem (Chapman-Kolmogorov Equation)</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#First-Step-Analysis"><span class="nav-number"></span> <span class="nav-text">First Step Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Toss-A-Coin-till-HH-Appear"><span class="nav-number">1.</span> <span class="nav-text">Example (Toss A Coin till HH Appear)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Toss-A-Coin-till-HTHT-Appear"><span class="nav-number">2.</span> <span class="nav-text">Example (Toss A Coin till HTHT Appear)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Classification-of-States"><span class="nav-number"></span> <span class="nav-text">Classification of States</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Recurrent-and-Transition-States"><span class="nav-number">1.</span> <span class="nav-text">Definition (Recurrent and Transition States)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Irreducible-amp-Reducible-Chain"><span class="nav-number">2.</span> <span class="nav-text">Definition (Irreducible &amp; Reducible Chain)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Irreducible-Implies-All-States-Recurrent"><span class="nav-number">3.</span> <span class="nav-text">Theorem (Irreducible Implies All States Recurrent)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Coupon-Collector"><span class="nav-number">4.</span> <span class="nav-text">Example (Coupon Collector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Period"><span class="nav-number">5.</span> <span class="nav-text">Definition (Period)</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank"> </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-Eulring"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JunYi Bian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'eulring',
+      repo: 'eulring.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '790d524f77828f326729967912a298eec6a572d6',
+      
+        client_id: '82137fb0220d8bed7c85'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + '')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': '',
+                'X-LC-Key': '',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: ,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

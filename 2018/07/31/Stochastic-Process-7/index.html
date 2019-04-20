@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/E1-1.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Beta-Binomial DistributionDefinition (Beta Distribution)An r.v. $X$ is said to have Beta distribution with parameters $a$ and $b$, if its PDF is$$f(x) = \frac{1}{\beta(a,b)}x^{a-1}(1-x)^{b-1},0&amp;lt;x&amp;l">
+<meta name="keywords" content="MATH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stochastic-Process (Conjugacy &amp; Bayesian)">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/Stochastic-Process-7/index.html">
+<meta property="og:site_name" content="Eulring">
+<meta property="og:description" content="Beta-Binomial DistributionDefinition (Beta Distribution)An r.v. $X$ is said to have Beta distribution with parameters $a$ and $b$, if its PDF is$$f(x) = \frac{1}{\beta(a,b)}x^{a-1}(1-x)^{b-1},0&amp;lt;x&amp;l">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/07/31/Stochastic-Process-7/sp7img1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/31/Stochastic-Process-7/sp7img2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/31/Stochastic-Process-7/sp7img3.jpg">
+<meta property="og:updated_time" content="2018-10-10T07:19:40.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stochastic-Process (Conjugacy &amp; Bayesian)">
+<meta name="twitter:description" content="Beta-Binomial DistributionDefinition (Beta Distribution)An r.v. $X$ is said to have Beta distribution with parameters $a$ and $b$, if its PDF is$$f(x) = \frac{1}{\beta(a,b)}x^{a-1}(1-x)^{b-1},0&amp;lt;x&amp;l">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/31/Stochastic-Process-7/sp7img1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/31/Stochastic-Process-7/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Stochastic-Process (Conjugacy & Bayesian) | Eulring</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Eulring</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/eulring" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/31/Stochastic-Process-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JunYi Bian">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/E.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eulring">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Stochastic-Process (Conjugacy & Bayesian)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-31 10:35:18" itemprop="dateCreated datePublished" datetime="2018-07-31T10:35:18+08:00">2018-07-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-10 15:19:40" itemprop="dateModified" datetime="2018-10-10T15:19:40+08:00">2018-10-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/07/31/Stochastic-Process-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/31/Stochastic-Process-7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/07/31/Stochastic-Process-7/" class="leancloud_visitors" data-flag-title="Stochastic-Process (Conjugacy & Bayesian)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Beta-Binomial-Distribution"><a href="#Beta-Binomial-Distribution" class="headerlink" title="Beta-Binomial Distribution"></a>Beta-Binomial Distribution</h1><h3 id="Definition-Beta-Distribution"><a href="#Definition-Beta-Distribution" class="headerlink" title="Definition (Beta Distribution)"></a>Definition (Beta Distribution)</h3><p>An r.v. $X$ is said to have <strong>Beta distribution</strong> with parameters $a$ and $b$, if its PDF is<br>$$f(x) = \frac{1}{\beta(a,b)}x^{a-1}(1-x)^{b-1},0&lt;x&lt;1$$<br>where $\beta(a,b)$ is constant to make PDF integrate to 1, We write this as $X\sim Beta(a,b)$</p>
+<p>By varying the values of $a$ and $b$, we get PDFs with a variety of shapes<br><img src="/2018/07/31/Stochastic-Process-7/sp7img1.jpg" align="justify"></p>
+<p><em>Beta Distribution is the generalization of uniform distribution while $a=b=1$</em></p>
+<p>The Beta is a flexible family of continuous distributions on (0,1), and has many stories. One is Beta r.v. often used to represent an unknown probability. <strong>we can use Beta to put probabilities on unknown probabilities</strong> If a parameter $p$ satisfies $0&lt;p&lt;1$, we can assume the prior distribution of $p$ is Beta(a,b)</p>
+<h3 id="Beta-Integral"><a href="#Beta-Integral" class="headerlink" title="Beta Integral"></a>Beta Integral</h3><p>One inportant issue to analyse the Beta Distribution is the Integral<br>$$\beta(a,b) = \int_0^1 x^{a-1}(1-x)^{b-1}dx$$</p>
+<h3 id="Bayes’-billiards"><a href="#Bayes’-billiards" class="headerlink" title="Bayes’ billiards"></a>Bayes’ billiards</h3><p> It’s hard to get the reuslt directly from calculus, the left and right sides of the above formulation can be connected by one event $P(X=k)$<br>$$\int_0^1 \left( \begin{array}{c} n\\k \end{array} \right) x^k(1-x)^{n-k}dx = \frac{1}{n+1}$$</p>
+<p><strong>Left side Story :</strong> Having $n+1$ balls , $n$ white and $1$ gray. Randomly throw each ball onto the interval $[0,1]$, so the position of balls are i.i.d. $Unif(0,1)$. Let $X$ be the number of white balls to the left of the gray ball.</p>
+<p>To get the probability of the event $X=k$, we use LOTP. Conditioning on the position of gray ball, call it $B$, Conditional on $B=p$, the number of the white ball landing to the left of $p$ has $Bin(n,p)$ distribution, The PDF of $B$ is $f(p) =1$ since $B\sim Unif(0,1)$<br>$$P(X=k) = \int_0^1 P(X=k|B=p)f(p)dp = \int_0^1 \left( \begin{array}{c} n\\k \end{array} \right) p^k(1-k)^{n-k}dp$$</p>
+<p><strong>Right side Story :</strong> Having $n+1$ balls, all white, randomly throw onto unit interval; then choose one ball at random and paint it gray. Again, let $X$ be the number of white balls to the left of gray ball. By symmetry, any one of the $n+1$ balls is equally likely to be painted gray, then<br>$$P(X=k) = \frac{1}{n+1}$$</p>
+<p>$X$ has the same distribution, then<br>$$\int_0^1 \left( \begin{array}{c} n\\k \end{array} \right) p^k (1-p)^{n-k}dp= \frac{1}{n+1}$$</p>
+<p>Using the result, we are capable to calculate the $\beta(a,b)$ by substituting $a-1$ for $k$ and $b-1$ for $n-k$<br>$$\beta(a,b) = \frac{1}{(a+b-1) \left( \begin{array}{c} a+b-2\\a-1 \end{array} \right)} = \frac{(a-1)!(b-1)!}{(a+b-1)!}$$<br>For a r.v. $X\sim Beta(a,b)$, The Expectation<br>$$\begin{align}<br>E(X) &amp;= \int_0^1 xf(x)dx= \int_0^1 x\cdot \frac{x^{a-1}(1-x)^{b-1}}{\beta(a,b)}dx=\frac{1}{\beta(a,b)}\int_0^1 x^a(1-x)^{b-1}dx \\<br>&amp;= \frac{1}{\beta(a,b)}\cdot \beta(a+1,b) = \frac{\frac{a!(b-1)!}{(a+b)!}}{\frac{(a-1)!(b-1)!}{(a+b-1)!}} = \frac{a}{a+b}<br>\end{align}$$</p>
+<h3 id="Beta-Binomial-Conjugacy"><a href="#Beta-Binomial-Conjugacy" class="headerlink" title="Beta-Binomial Conjugacy"></a>Beta-Binomial Conjugacy</h3><p> Now let’s see the connection between Beta distribution and Binomial distribution, the relation we call it Conjugacy.</p>
+<p>We have a coin lands head with p. $p$, and we dont know what %p% is. Our goal is to infer the value of $p$ after observing the outcomes of n tosses of the coin.<br><strong>Bayesian Inference</strong></p>
+<ul>
+<li>Treat all unknown probability $p$ as r.v. and give $p$ a distribution</li>
+<li>Above is called <strong>prior distribution</strong>, it reflects out uncertainty about the ture value of $p$ before observing</li>
+<li>After experiment and data are gathered, prior distribution is updated using Baye’s rule,; This yields the <strong>posterior distribution</strong>, which reflects the new beliefs about $p$</li>
+<li>Specifically<ul>
+<li><strong>prior distribution</strong> $f(p)$</li>
+<li><strong>posterior distribution</strong> $f(p|X=n)$</li>
+</ul>
+</li>
+</ul>
+<p>Suppose the prior distribution on $p$ is Beta distribution. Let $p\sim Beta(a,b)$ for known constants $a$ and $b$, $X$ be the number of heads in $n$ tosses of the coin. Conditional on knowing ture value of $p$ then<br>$$X|p \sim Bin(n,p)$$</p>
+<p>We use the Bayes rule. Letting $f(p)$ be the prior distribution and $f(p|X=k)$ be the posterior distribution after observing $k$ heads</p>
+<p>$$f(p|X=k) = \frac{P(X=k|p)f(p)}{P(X=k)}=\frac{\left( \begin{array}{c} n\\k \end{array} \right) p^k (1-p)^{n-k}\cdot \frac{1}{\beta(a,b)}p^{a-1}(1-p)^{b-1}}{P(X=k)}$$</p>
+<p>The denominator $P(X=k)$ is the marginal PMF of $X$, is given by<br>$$P(X=k) = \int_0^1 P(X=k|p) f(p)dp = \int_0^1 \left( \begin{array}{c} n\\k \end{array} \right) p^k(1-p)^{n-k}f(p)dp$$</p>
+<p>If $a=b=1$ , $P(X=k) = 1/(n+1)$, but it not seem easy to find $P(X=k)$ in general , Are we stuck ?</p>
+<p>Actually, is much easier than it appears at first, the conditional PDF $f(p|X=k)$ is a function of $p$, so everything doesn’t depend on $p$ is just a constant. After dropping constants gives<br>$$f(p|X=k) \propto p^{a+k-1}(1-p)^{b+n-k-1}$$<br>which is the $Beta(a+k,b+n-k)$ PDF.Therefore the posterior distribution of $p$ is<br>$$p|X = k\sim Beta(a+k,b+n-k)$$</p>
+<p>The posterior distribution of $p$ after observing $X=k$ is still a Beta distribution!</p>
+<p>We say <em>Beta is the Conjugate prior of the Binomial</em></p>
+<ul>
+<li>We add the observed successes $k$ to the first parameter</li>
+<li>We add the observed successes $k-n$ to the second parameter</li>
+<li>$a$ and $b$ have a concrete interpretation in this context<ul>
+<li>$a$ as the number of prior successes in earlier experiments</li>
+<li>$b$ as the number of prior failures in earlier experiments</li>
+</ul>
+</li>
+</ul>
+<h3 id="Mean-vs-Bayesian-Average"><a href="#Mean-vs-Bayesian-Average" class="headerlink" title="Mean vs Bayesian Average"></a>Mean vs Bayesian Average</h3><ul>
+<li>Mean: $\frac{k}{n}$</li>
+<li>Bayesian Average: $E(p|X=k) = \frac{a+k}{a+b+n}$</li>
+</ul>
+<hr>
+<h1 id="Dirichlet-Multinomial-Distribution"><a href="#Dirichlet-Multinomial-Distribution" class="headerlink" title="Dirichlet-Multinomial Distribution"></a>Dirichlet-Multinomial Distribution</h1><p>$n$ objects are independently placed into one of $k$ categories, with probability of $p_j$ to category j, and $\sum_{j=1}^k p_j = 1$. Let $X_i$ be the number of objects in category $i$, $X_1 + … + X_n = n$. Then $X = (X_1,…,X_k)$ is said to have <strong>Multinomial distribution</strong> with parameters $n$ and $\mathbf{p} = (p_1,…,p_k)$, write as $\mathbf{X} \sim Mult_k(n,\mathbf{p})$</p>
+<h3 id="Theorem-Multinomial-Joint-PMF"><a href="#Theorem-Multinomial-Joint-PMF" class="headerlink" title="Theorem (Multinomial Joint PMF)"></a>Theorem (Multinomial Joint PMF)</h3><p>If $\mathbf{X}\sim Mult_k(n,\mathbf{p})$, then the joint PMF of $\mathbf{X}$ is<br>$$P(X_1=n_1,…,X_k=n_k) = \frac{n!}{n_1!n_2!…n_k!}\cdot p_1^{n_1}p_2^{n_2}\dotsb p_k^{n_k}$$</p>
+<h3 id="Theorem-Multinomial-Marginals"><a href="#Theorem-Multinomial-Marginals" class="headerlink" title="Theorem (Multinomial Marginals)"></a>Theorem (Multinomial Marginals)</h3><p>If $\mathbf{X}\sim Mult_k(n,\mathbf{p})$, then $X_j \sim Bin(n,p_j)$</p>
+<h3 id="Theorem-Multinomial-Lumping"><a href="#Theorem-Multinomial-Lumping" class="headerlink" title="Theorem (Multinomial Lumping)"></a>Theorem (Multinomial Lumping)</h3><p>If $\mathbf{X}\sim Mult_k(n,\mathbf{p})$, then for distinct $i$ and $j$, $X_i+X_j\sim Bin(n,p_i+p_j)$<br>$$(X_1+X_2,X_3,…,X_k)\sim Mult_k(n,((p_1+p_2),p_3,…,p_n))$$<br><img src="/2018/07/31/Stochastic-Process-7/sp7img2.jpg" style=" width:500px;"></p>
+<h3 id="Theorem-Multinomial-Conditioning"><a href="#Theorem-Multinomial-Conditioning" class="headerlink" title="Theorem (Multinomial Conditioning)"></a>Theorem (Multinomial Conditioning)</h3><p>If $\mathbf{X}\sim Mult_k(n,\mathbf{p})$, then<br>$$(X_2,…,X_k)|X_1=n_1\sim Mult_k(n-n_1,(p_2^{\prime},…,p_k^{\prime}))$$<br>where $p_j^{\prime} = p_j/(p_2+\dotsb +p_k)$</p>
+<h3 id="Theorem-Covariance-in-A-Multinomial"><a href="#Theorem-Covariance-in-A-Multinomial" class="headerlink" title="Theorem (Covariance in A Multinomial)"></a>Theorem (Covariance in A Multinomial)</h3><p>Let $X_1,…,X_k\sim Mult_k(n,\mathbf{p})$, where $\mathbf{p} = (p_1,…,p_k)$.<br>$$Cov(X_i,X_j) = -np_ip_j$$</p>
+<h3 id="Definition-Dirichlet-Distribution"><a href="#Definition-Dirichlet-Distribution" class="headerlink" title="Definition (Dirichlet Distribution)"></a>Definition (Dirichlet Distribution)</h3><p>Dirichlet distribution is parameterized by a vector $\mathbf{\alpha}$ of positive real numbers. The PDF is:<br>$$f(p_1,p_2,…,p_k;\alpha_1,\alpha_2,…,\alpha_k)=\frac{\Gamma(\sum_{i=1}^k\alpha_i)}{\prod_{i=1}^k\Gamma(\alpha_i)}\prod_{i=1}^kp_i^{\alpha_i-1}$$<br>where $p_1 + … + p_k = 1$</p>
+<h3 id="Dirichlet-Multinomial-Conjugacy"><a href="#Dirichlet-Multinomial-Conjugacy" class="headerlink" title="Dirichlet-Multinomial Conjugacy"></a>Dirichlet-Multinomial Conjugacy</h3><p>Assume we already have the Multinomial distribution $\mathbf{X}\sim Mult_k(n,\mathbf{p})$. The prior distribution of $\mathbf{p}=(p_1,…,p_k)$ is a Dirichlet distribution, i.e. $\mathbf{p}\sim Dir(\alpha)$. Denote $\mathbf{X} = (X_1,…,X_k)$, then<br>$$\mathbf{X}|\mathbf{p}\sim Mult_k(n,\mathbf{p})$$<br>Let $f(\mathbf{p})$ to be the prior distribution of $\mathbf{p}$. The observations of the experiment is $\mathbf{N} = (n_1,…,n_k)$ then<br>$$\begin{align}<br>f(\mathbf{p}|\mathbf{X}=\mathbf{N}) &amp;= \frac{P(\mathbf{X}=\mathbf{N}|\mathbf{p})f(\mathbf{p})}{P(\mathbf{X}=\mathbf{N})} \\<br>&amp;= \frac{\frac{n!}{n_1!\dotsb n_k!}p_1^{n_1}\dotsb p_k^{n_k}\cdot \frac{\Gamma(\sum_{i=1}^k \alpha_i)}{\prod_{i=1}^k \Gamma(\alpha_i)}\prod_{i=1}^k p_i^{\alpha_i -1}}{P(\mathbf{X}= \mathbf{N})} \\<br>&amp;\propto p_1^{n_1+\alpha_1 - 1}\dotsb p_k^{n_k+\alpha_k - 1} \\<br>&amp;\sim Dir(\mathbf{\alpha} + \mathbf{N})<br>\end{align}$$</p>
+<p>Thus we can see that<br>$$\text{prior} Dir(\mathbf{\alpha}) \rightarrow \text{posterior} Dir(\mathbf{\alpha} + \mathbf{N})$$<br>$$\alpha_i \rightarrow \alpha_i + n_i$$<br>We can prove that<br>$$E[p_i|\mathbf{X} = \mathbf{N}] = \frac{\alpha_i + n_i}{\sum_{i=1}^k(\alpha_i + n_i)}$$</p>
+<hr>
+<h1 id="Bayesian-Average"><a href="#Bayesian-Average" class="headerlink" title="Bayesian Average"></a>Bayesian Average</h1><p>One application for Bayesian Average is in <strong>Rating System</strong>, usually the customers will rate the movies in 5 star.</p>
+<p>This will rose a problem, which One to Choose</p>
+<ul>
+<li>$5$ Average rating movie A by $1$ voter</li>
+<li>$4.9998$ Average rating movie B by $1400010123$ voter (of course this One)</li>
+</ul>
+<p>To use the Bayesian estimation to compute the posterior probability for star ratings, we must use a <strong>joint distribution</strong>, the random variable is a categorical distribution with probability follows:<br>$$p_1+p_2+p_3+p_4+p_5 = 1$$</p>
+<h5 id="Multinomial-Distribution"><a href="#Multinomial-Distribution" class="headerlink" title="Multinomial Distribution"></a>Multinomial Distribution</h5><p>Let $O$ be the event of movie rating, we compute the posterior probability with $N$ observations for five categories with corresponding numbers $K_1,K_2,K_3,K_4,K_5$ as follows:<br>$$Pr(O|p_1,p_2,p_3,p_4,p_5)\propto p_1^{K_1}p_2^{K_2}p_3^{K_3}p_4^{K_4}p_5^{K_5}$$<br>where $K_1+…+K_5 = N$</p>
+<h5 id="Dirichlet-Distribution-Prior"><a href="#Dirichlet-Distribution-Prior" class="headerlink" title="Dirichlet Distribution: Prior"></a>Dirichlet Distribution: Prior</h5><p>$$Pr(p_1,p_2,p_3,p_4,p_5|O) \propto \prod_{j=1}^5 p_j^{K_j+\alpha_j^0 - 1}$$</p>
+<p>After considering the new votes we can update the distribution of the $\mathbf{p}$ by<br>$$\alpha_j^1 = K_j +\alpha_k^0$$</p>
+<h5 id="Expected-Average"><a href="#Expected-Average" class="headerlink" title="Expected Average"></a>Expected Average</h5><p>What we need is the average rating given posterior in the shape of our Dirichlet distribution:<br>$$E(p_1+2p_2+3p_3+4p_4+5p_5|O) = \sum_{i=1}^5 iE(p_i|O)$$</p>
+<p>According to<br>$$E(p_i|O) = \frac{\alpha_i^1}{\sum_{j=1}^5 \alpha_j^1}$$<br>We have<br>$$\sum_{i=1}^5 iE(p_i|O) = \frac{\sum_{i=1}^5 i\alpha_i^0 + \sum_{i=1}^5 i K_i}{\sum_{j=1}^5 \alpha_j^0 +N}$$</p>
+<h3 id="Bayesian-Average-Rating"><a href="#Bayesian-Average-Rating" class="headerlink" title="Bayesian Average Rating"></a>Bayesian Average Rating</h3><p>The final formulation can be express as<br>$$\text{Bayes Average Rating} = \frac{C\cdot m +\sum(ratings)}{C+N}$$</p>
+<ul>
+<li>N: The number of ratings</li>
+<li>m: a prior for the average of rating scores</li>
+<li>C: a prior for the number of rating scores</li>
+</ul>
+<hr>
+<h1 id="Gamma-Distribution"><a href="#Gamma-Distribution" class="headerlink" title="Gamma Distribution"></a>Gamma Distribution</h1><h3 id="Definition-Gamma-Function"><a href="#Definition-Gamma-Function" class="headerlink" title="Definition (Gamma Function)"></a>Definition (Gamma Function)</h3><p>The Gamma function $\Gamma$ is defined by<br>$$\Gamma(a) = \int_0^{\infty}x^ae^{-x}\frac{dx}{x}$$<br>Earlier Beta distribution can represent an unknown probability of success cause its support is $(0,1)$. The Gamma distribution can represent an unknown rate in a Poisson process because its support is $(0,\infty)$</p>
+<h3 id="Property-of-Gamma-Function"><a href="#Property-of-Gamma-Function" class="headerlink" title="Property of Gamma Function"></a>Property of Gamma Function</h3><ul>
+<li>$\Gamma(a+1) = a\Gamma(a)$</li>
+<li>$\Gamma(n) = (n-1)!$ if $n$ is a integer</li>
+</ul>
+<h3 id="Definition-Gamma-Distribution"><a href="#Definition-Gamma-Distribution" class="headerlink" title="Definition (Gamma Distribution)"></a>Definition (Gamma Distribution)</h3><p>An r.v. $Y$ is said to have <strong>Gamma distribution</strong> with parameters $a&gt;0, \lambda&gt;0$, if its PDF is<br>$$f(y) = \frac{1}{\Gamma(a)}(\lambda y)^a e^{-\lambda y} \frac{1}{y}, y&gt;0$$<br>Write $Y\sim Gamma(a,\lambda)$. <strong>Gamma distribution is a generalization of exponential distribution</strong> when $a=1$</p>
+<h3 id="PDF-of-Gamma-distribution"><a href="#PDF-of-Gamma-distribution" class="headerlink" title="PDF of Gamma distribution"></a>PDF of Gamma distribution</h3><p><img src="/2018/07/31/Stochastic-Process-7/sp7img3.jpg" align="justify"></p>
+<h3 id="Moments-of-Gamma-Distribution"><a href="#Moments-of-Gamma-Distribution" class="headerlink" title="Moments of Gamma Distribution"></a>Moments of Gamma Distribution</h3><p>$$E[X] = \frac{a}{\lambda}, Var(X) = \frac{a}{\lambda^2}$$</p>
+<h3 id="Theorem-Gamma-Convolution-of-Exponential"><a href="#Theorem-Gamma-Convolution-of-Exponential" class="headerlink" title="Theorem (Gamma: Convolution of Exponential)"></a>Theorem (Gamma: Convolution of Exponential)</h3><p>Let $X_1,…,X_n$ be i.i.d. $Expo(\lambda)$ , Then<br>$$X_1+\dotsb +X_n \sim Gamma(n,\lambda)$$</p>
+<h3 id="Beta-Gamma-Connection"><a href="#Beta-Gamma-Connection" class="headerlink" title="Beta-Gamma Connection"></a>Beta-Gamma Connection</h3><p>We have independent Gamma r.v.s $X$ and $Y$ with the same rate $\lambda$</p>
+<ul>
+<li>$X+Y$ had Gamma distribution</li>
+<li>$\frac{X}{X+Y}$ has Beta distribution</li>
+</ul>
+<h3 id="Binomial-amp-Poisson-amp-Gamma"><a href="#Binomial-amp-Poisson-amp-Gamma" class="headerlink" title="Binomial &amp; Poisson &amp; Gamma"></a>Binomial &amp; Poisson &amp; Gamma</h3><ul>
+<li>The PMF of $Poisson(X=k|\lambda)$ is $P(X=k|\lambda) = \frac{\lambda^ke^{-\lambda}}{k!}$</li>
+<li>The PDF of $X\sim Gamma(a,1)$ is $f_X(x) = \frac{1}{\Gamma(a)}a^{a-1}e^{-x}$. Given $a=k+1$ we have<br>$$P(X=x|a=k+1,1)=\frac{x^{k+1}}{\Gamma(k+1)}e^{-x}= \frac{x^k}{k!}e^{-x}$$</li>
+<li>For a r.v. $X\sim Bin(n,p)$, we have<br>$$P(X\leq k)=\frac{n!}{k!(n-k-1)!}\int_p^1 t^k(1-t)^{n-k-1}dt$$<br>Let $t=\frac{x}{n}$, then<br>$$P(X\leq k) = \int_{np}^n Bin(X=k|n-1,\frac{x}{n})dx$$<br>It follows that<br>$$Bin(X\leq k|n,p) = \int_{np}^n Bin(X=k|n-1,\frac{x}{n}dx)$$</li>
+<li>Let $\lambda = np$. We fix $\lambda$, and let $n\rightarrow \infty$, then<br>$$Bin(n,p) \rightarrow Posi(\lambda)$$</li>
+<li>When $\lambda \rightarrow 0$, we have<br>$$1=\mathop{lim}_{\lambda \rightarrow 0} \int_{\lambda}^{\infty} \frac{\lambda^k e^{-x}}{k!}dx = \int_0^{\infty} \frac{x^ke^{-x}}{k!}dx=\int_0^{\infty} Gamma(k+1,1)dx$$</li>
+<li>$1=\int_0^{\infty} \frac{x^ke^{-x}}{k!}dx\Rightarrow k!=\int_0^{\infty}x^k e^{-x}dx$</li>
+<li>Because $Pois(X\leq k|\lambda) = \int_{\lambda}^{\infty}\frac{x^k e^{-x}}{k!} dx$ we have<br>$$Pois(X\leq k|\lambda) + \int_0^{\infty} \frac{x^ke^{-x}}{k!}dx = 1$$</li>
+</ul>
+<p>.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MATH/" rel="tag"># MATH</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/29/Stochastic-Process-6/" rel="next" title="Stochastic-Process (Multivariate)">
+                <i class="fa fa-chevron-left"></i> Stochastic-Process (Multivariate)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/03/Stochastic-Process-8/" rel="prev" title="Stochastic-Process (Conditional Expectation)">
+                Stochastic-Process (Conditional Expectation) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/E.jpg" alt="JunYi Bian">
+            
+              <p class="site-author-name" itemprop="name">JunYi Bian</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/eulring" title="GitHub &rarr; https://github.com/eulring" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Beta-Binomial-Distribution"><span class="nav-number">1.</span> <span class="nav-text">Beta-Binomial Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Beta-Distribution"><span class="nav-number">1.0.1.</span> <span class="nav-text">Definition (Beta Distribution)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beta-Integral"><span class="nav-number">1.0.2.</span> <span class="nav-text">Beta Integral</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bayes’-billiards"><span class="nav-number">1.0.3.</span> <span class="nav-text">Bayes’ billiards</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beta-Binomial-Conjugacy"><span class="nav-number">1.0.4.</span> <span class="nav-text">Beta-Binomial Conjugacy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mean-vs-Bayesian-Average"><span class="nav-number">1.0.5.</span> <span class="nav-text">Mean vs Bayesian Average</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Dirichlet-Multinomial-Distribution"><span class="nav-number">2.</span> <span class="nav-text">Dirichlet-Multinomial Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Multinomial-Joint-PMF"><span class="nav-number">2.0.1.</span> <span class="nav-text">Theorem (Multinomial Joint PMF)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Multinomial-Marginals"><span class="nav-number">2.0.2.</span> <span class="nav-text">Theorem (Multinomial Marginals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Multinomial-Lumping"><span class="nav-number">2.0.3.</span> <span class="nav-text">Theorem (Multinomial Lumping)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Multinomial-Conditioning"><span class="nav-number">2.0.4.</span> <span class="nav-text">Theorem (Multinomial Conditioning)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Covariance-in-A-Multinomial"><span class="nav-number">2.0.5.</span> <span class="nav-text">Theorem (Covariance in A Multinomial)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Dirichlet-Distribution"><span class="nav-number">2.0.6.</span> <span class="nav-text">Definition (Dirichlet Distribution)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dirichlet-Multinomial-Conjugacy"><span class="nav-number">2.0.7.</span> <span class="nav-text">Dirichlet-Multinomial Conjugacy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bayesian-Average"><span class="nav-number">3.</span> <span class="nav-text">Bayesian Average</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Multinomial-Distribution"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">Multinomial Distribution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dirichlet-Distribution-Prior"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">Dirichlet Distribution: Prior</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Expected-Average"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">Expected Average</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bayesian-Average-Rating"><span class="nav-number">3.0.1.</span> <span class="nav-text">Bayesian Average Rating</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gamma-Distribution"><span class="nav-number">4.</span> <span class="nav-text">Gamma Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Gamma-Function"><span class="nav-number">4.0.1.</span> <span class="nav-text">Definition (Gamma Function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Property-of-Gamma-Function"><span class="nav-number">4.0.2.</span> <span class="nav-text">Property of Gamma Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-Gamma-Distribution"><span class="nav-number">4.0.3.</span> <span class="nav-text">Definition (Gamma Distribution)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PDF-of-Gamma-distribution"><span class="nav-number">4.0.4.</span> <span class="nav-text">PDF of Gamma distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moments-of-Gamma-Distribution"><span class="nav-number">4.0.5.</span> <span class="nav-text">Moments of Gamma Distribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theorem-Gamma-Convolution-of-Exponential"><span class="nav-number">4.0.6.</span> <span class="nav-text">Theorem (Gamma: Convolution of Exponential)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beta-Gamma-Connection"><span class="nav-number">4.0.7.</span> <span class="nav-text">Beta-Gamma Connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binomial-amp-Poisson-amp-Gamma"><span class="nav-number">4.0.8.</span> <span class="nav-text">Binomial &amp; Poisson &amp; Gamma</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank"> </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-Eulring"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JunYi Bian</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+    <!-- LOCAL: You can save these files to your site and update links -->
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitmint.browser.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.css">
+<!-- END LOCAL -->
+
+<style>
+#gitment-container a {
+  border-bottom: none;
+}
+
+</style>
+
+<script>
+  function renderGitment() {
+    var gitment = new Gitmint({
+      id: window.location.pathname,
+      owner: 'eulring',
+      repo: 'eulring.github.io',
+      
+        lang: '' || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+      
+      oauth: {
+      
+      
+        client_secret: '790d524f77828f326729967912a298eec6a572d6',
+      
+        client_id: '82137fb0220d8bed7c85'
+      }
+    });
+    gitment.render('gitment-container');
+  }
+
+  
+    renderGitment();
+  
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + '')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': '',
+                'X-LC-Key': '',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: ,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
