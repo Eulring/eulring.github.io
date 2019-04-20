@@ -96,20 +96,26 @@
 
 
 
-  <meta name="description" content="Generating Sentences from a Continuous SpaceIntroductionMethodConclusion encoder 和 decoder 都是使用 RNN 来进行编码的 VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log{p_{\theta}(x|z)}] - KL">
+  <meta name="description" content="Generating Sentences from a Continuous SpaceIntroduction和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。  VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log">
 <meta name="keywords" content="GAN,NLG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="papers - VAE for Sequence Generation">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/P-3/index.html">
 <meta property="og:site_name" content="Eulring">
-<meta property="og:description" content="Generating Sentences from a Continuous SpaceIntroductionMethodConclusion encoder 和 decoder 都是使用 RNN 来进行编码的 VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log{p_{\theta}(x|z)}] - KL">
+<meta property="og:description" content="Generating Sentences from a Continuous SpaceIntroduction和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。  VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/P-Generating-Sentences-from-a-Continuous-Space/img1.jpg">
-<meta property="og:updated_time" content="2019-04-20T12:39:56.387Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img3.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img5.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img9.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img10.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img7.jpg">
+<meta property="og:updated_time" content="2019-04-20T14:03:03.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="papers - VAE for Sequence Generation">
-<meta name="twitter:description" content="Generating Sentences from a Continuous SpaceIntroductionMethodConclusion encoder 和 decoder 都是使用 RNN 来进行编码的 VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log{p_{\theta}(x|z)}] - KL">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/05/P-3/P-Generating-Sentences-from-a-Continuous-Space/img1.jpg">
+<meta name="twitter:description" content="Generating Sentences from a Continuous SpaceIntroduction和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。  VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/05/P-3/img1.jpg">
 
 
 
@@ -411,7 +417,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-20 20:39:56" itemprop="dateModified" datetime="2019-04-20T20:39:56+08:00">2019-04-20</time>
+                <time title="Modified: 2019-04-20 22:03:03" itemprop="dateModified" datetime="2019-04-20T22:03:03+08:00">2019-04-20</time>
               
             
           </span>
@@ -494,19 +500,34 @@
       
 
       
-        <h1 id="Generating-Sentences-from-a-Continuous-Space"><a href="#Generating-Sentences-from-a-Continuous-Space" class="headerlink" title="Generating Sentences from a Continuous Space"></a>Generating Sentences from a Continuous Space</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p><img src="/2019/04/05/P-3/P-Generating-Sentences-from-a-Continuous-Space/img1.jpg" align="justify"></p>
-<p>encoder 和 decoder 都是使用 RNN 来进行编码的</p>
+        <h1 id="Generating-Sentences-from-a-Continuous-Space"><a href="#Generating-Sentences-from-a-Continuous-Space" class="headerlink" title="Generating Sentences from a Continuous Space"></a>Generating Sentences from a Continuous Space</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。</p>
+<p><img src="/2019/04/05/P-3/img1.jpg" align="justify"></p>
 <p>VAE 的 objective 形式是:<br>$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log{p_{\theta}(x|z)}] - KL(q_{\phi}(z|x^i)|| p_{\theta}(z))$$</p>
+<blockquote>
 <p>左侧是 reconstruction term, 右侧是 regularization term.</p>
+</blockquote>
 <p>和最基本的 VAE 一样，Sentences 也使用 diagonal Gaussian 分布来近似自己的 latent 分布。</p>
-<p>这篇文章主要的贡献以及讨论的是将传统的 VAE 的 encoder 和 decoder 从 NN 替换成了 RNN 后出现的问题。这个问题主要是 RNN 的 decoder 能力太强了，对于 z 的依赖性很低，那么 z 的分布就可以取的很自由，于是 -KL 的值就迅速升至 0，这里 decoder 的能力太强，并不是指能把重构 loss 降的很低很低，而是，z 对于 decoder 的影响不够大。如果 z 对于 decoder 的影响变成 0 了以后，那么就变成了最原始的 RNN 了，encoder 就完全失效了。</p>
-<p>所以，为了解决这个问题，我们要做的就是让 z 能施加更大的影响力。解决的方法有两种（其实本质上都是弱化 decoder 的能力，来间接提高 encoder 的影响力）：</p>
-<ol>
-<li>作者引入一个权重 w 来控制这个 KL 项，并让 w 从 0 开始随着训练逐渐慢慢增大。作者的意思是一开始让模型学会 encode 更多信息到 z 里，然后随着 w 增大再 smooth encodings。其实从工程/代码的角度看，因为 KL 这项更容易降低，模型会优先去优化 KL，于是 KL 很快就降成 0。但如果我们乘以一开始很小的 w，模型就会选择忽视 KL（这项整体很小不用降低了），选择优先去降低 reconstruction errors。当 w 慢慢增大，模型也慢慢开始关注降低 KL 这项了。这个技巧在调参中其实也非常实用。</li>
-</ol>
-<ol start="2">
-<li>既然问题是 RNN-based 的 decoder 能力太强，那我们就来弱化它好了。具体方法是把 input 的词替换成 UNK（我可能是个假的 decoder），模型被迫只能去多多依赖z。当然保留多少 input 也需要尝试，我们把全都不保留的叫做 inputless decoder，实验表明，inputless VAE 比起 inputless RNN language model 不知道好到哪里去了。</li>
-</ol>
+<p>其实 VAE 用在 NLP 上和 CV 上十分相似，只要将 Encoder 和 Decoder 替换成序列生成模型 LSTM 或者 RNN 即可，但是直接这样做在实际的训练中会碰到问题，就是 RNN 的 decoder 能力太强了，对于 z 的依赖性很低，那么 z 的分布就可以取的很自由，于是 -KL 的值就迅速升至 0，这里 decoder 的能力太强，并不是指能把重构 loss 降的很低很低，而是，z 对于 decoder 的影响不够大。如果 z 对于 decoder 的影响变成 0 了以后，那么就变成了最原始的 RNN 了，encoder 就完全失效了。这篇文章主要的贡献就是提出了两个方法来解决这个问题。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>为了解决上面提到的这个问题，我们要做的就是让 z 能施加更大的影响力。解决的方法有两种（其实本质上都是弱化 decoder 的能力，来间接提高 encoder 的影响力）</p>
+<h3 id="KL-cost-annealing"><a href="#KL-cost-annealing" class="headerlink" title="KL cost annealing"></a>KL cost annealing</h3><p>作者引入一个权重 w 来控制这个 KL 项，并让 w 从 0 开始随着训练逐渐慢慢增大。作者的意思是一开始让模型学会 encode 更多信息到 z 里，然后随着 w 增大再 smooth encodings。其实从工程/代码的角度看，因为 KL 这项更容易降低，模型会优先去优化 KL，于是 KL 很快就降成 0。但如果我们乘以一开始很小的 w，模型就会选择忽视 KL（这项整体很小不用降低了），选择优先去降低 reconstruction errors。当 w 慢慢增大，模型也慢慢开始关注降低 KL 这项了。这个技巧在调参中其实也非常实用。</p>
+<p>$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log{p_{\theta}(x|z)}] - w \cdot KL(q_{\phi}(z|x^i)|| p_{\theta}(z))$$</p>
+<p><img src="/2019/04/05/P-3/img3.jpg" align="justify"></p>
+<blockquote>
+<p>使用 KL cost annealing 后 KL loss 的变化</p>
+</blockquote>
+<h3 id="Word-dropout"><a href="#Word-dropout" class="headerlink" title="Word dropout"></a>Word dropout</h3><p><img src="/2019/04/05/P-3/img2.jpg" align="justify"></p>
+<p>既然问题是 RNN-based 的 decoder 能力太强，那我们就来弱化它好了。具体方法是把 input 的词替换成 UNK，模型被迫只能去多多依赖z。当然保留多少 input 也需要尝试，我们把全都不保留的叫做 inputless decoder，实验表明，inputless VAE 比起 inputless RNN language model 不知道好到哪里去了。</p>
+<p><img src="/2019/04/05/P-3/img5.jpg" align="justify"></p>
+<blockquote>
+<p>不同的 worddrop 概率所得到的结果</p>
+</blockquote>
+<h3 id="Sentence-VAE-Pipeline"><a href="#Sentence-VAE-Pipeline" class="headerlink" title="Sentence VAE Pipeline"></a>Sentence VAE Pipeline</h3><p><strong>Training</strong><br><img src="/2019/04/05/P-3/img9.jpg" align="justify"></p>
+<p><strong>Inference</strong><br><img src="/2019/04/05/P-3/img10.jpg" align="justify"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>实验结果表示 VAE 能够在连续的空间生成具有多样性的句子</p>
+<p><img src="/2019/04/05/P-3/img7.jpg" align="justify"></p>
+<blockquote>
+<p>上图的实验结果是这样的，假设最上面的句子经过 encoder 得到隐变量 z1，最下面的句子经过 encoder 得到隐变量 z2，对于 z1 和 z2 之间按照等差数列均匀采样得到一系列的 z ，把这些 z 放到 decoder RNN 中就会生成中间的那些句子了</p>
+</blockquote>
 <p>#</p>
 <h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里面有两个loss，一个是让VAE能够encode和decode出相同的信息，另一个是用discriminator来监督cc的生成。<br>但是实际上还增加了一个，就是将生成的样本再用encoder输出一个新的zz，用这个zz同原本的zz进行比较。说是可以确保zz和cc的独立性。</p>
 <h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p>021-38168873</p>
@@ -754,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generating-Sentences-from-a-Continuous-Space"><span class="nav-number">1.</span> <span class="nav-text">Generating Sentences from a Continuous Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">1.4.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">1.5.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">1.6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-2"><span class="nav-number">1.7.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-2"><span class="nav-number">1.8.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-2"><span class="nav-number">1.9.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generating-Sentences-from-a-Continuous-Space"><span class="nav-number">1.</span> <span class="nav-text">Generating Sentences from a Continuous Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-cost-annealing"><span class="nav-number">1.2.1.</span> <span class="nav-text">KL cost annealing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-dropout"><span class="nav-number">1.2.2.</span> <span class="nav-text">Word dropout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-VAE-Pipeline"><span class="nav-number">1.2.3.</span> <span class="nav-text">Sentence VAE Pipeline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">1.4.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">1.5.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">1.6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-2"><span class="nav-number">1.7.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-2"><span class="nav-number">1.8.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-2"><span class="nav-number">1.9.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
             
 
           </div>
