@@ -96,30 +96,36 @@
 
 
 
-  <meta name="description" content="SeqGAN: Sequence Generative Adversarial Nets with Policy GradientIntroduction首先来谈谈 GAN 的作用，GAN 在 CV 和 NLP 领域的应用还是有很大的区别的，在 CV 中，GAN 的主要作用是作为一个生成模型。而在 NLP 中，尤其接下来要介绍的文本生成领域，大部分用在 GAN 之前的常用的模型本身就是生成模型，那">
-<meta name="keywords" content="GAN,NLG">
+  <meta name="description" content="Conditional Generative Adversarial NetsIntroductionconditional GAN 简称 cGAN 可以看作是 GAN 的一个比较简洁但是成功的变种，传统的 GAN 有这样的一个问题，就是生成的内容是完全随机的，很难对其进行控制，GAN 的公式是：$$\mathop{min}_G \mathop{max}_D V(D,G) = E_{x\sim p">
+<meta name="keywords" content="GAN,IC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="papers - GAN for Sequence Generation">
-<meta property="og:url" content="http://yoursite.com/2019/04/05/P-2/index.html">
+<meta property="og:title" content="papers - Conditional GAN for Image Caption">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/P-1/index.html">
 <meta property="og:site_name" content="Eulring">
-<meta property="og:description" content="SeqGAN: Sequence Generative Adversarial Nets with Policy GradientIntroduction首先来谈谈 GAN 的作用，GAN 在 CV 和 NLP 领域的应用还是有很大的区别的，在 CV 中，GAN 的主要作用是作为一个生成模型。而在 NLP 中，尤其接下来要介绍的文本生成领域，大部分用在 GAN 之前的常用的模型本身就是生成模型，那">
+<meta property="og:description" content="Conditional Generative Adversarial NetsIntroductionconditional GAN 简称 cGAN 可以看作是 GAN 的一个比较简洁但是成功的变种，传统的 GAN 有这样的一个问题，就是生成的内容是完全随机的，很难对其进行控制，GAN 的公式是：$$\mathop{min}_G \mathop{max}_D V(D,G) = E_{x\sim p">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/04/05/P-2/img1.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/04/05/P-2/img2.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/04/05/P-2/img3.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/04/05/P-2/img4.jpg">
-<meta property="og:updated_time" content="2019-04-20T12:39:52.787Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img5.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img6.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img3.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img4.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img8.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img7.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img9.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/P-1/img10.jpg">
+<meta property="og:updated_time" content="2019-04-20T12:48:59.480Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="papers - GAN for Sequence Generation">
-<meta name="twitter:description" content="SeqGAN: Sequence Generative Adversarial Nets with Policy GradientIntroduction首先来谈谈 GAN 的作用，GAN 在 CV 和 NLP 领域的应用还是有很大的区别的，在 CV 中，GAN 的主要作用是作为一个生成模型。而在 NLP 中，尤其接下来要介绍的文本生成领域，大部分用在 GAN 之前的常用的模型本身就是生成模型，那">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/05/P-2/img1.jpg">
+<meta name="twitter:title" content="papers - Conditional GAN for Image Caption">
+<meta name="twitter:description" content="Conditional Generative Adversarial NetsIntroductionconditional GAN 简称 cGAN 可以看作是 GAN 的一个比较简洁但是成功的变种，传统的 GAN 有这样的一个问题，就是生成的内容是完全随机的，很难对其进行控制，GAN 的公式是：$$\mathop{min}_G \mathop{max}_D V(D,G) = E_{x\sim p">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/07/P-1/img5.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/05/P-2/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/P-1/">
 
 
 
@@ -129,7 +135,7 @@
   };
 </script>
 
-  <title>papers - GAN for Sequence Generation | Eulring</title>
+  <title>papers - Conditional GAN for Image Caption | Eulring</title>
   
 
 
@@ -354,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/P-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/P-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JunYi Bian">
@@ -371,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">papers - GAN for Sequence Generation
+          <h1 class="post-title" itemprop="name headline">papers - Conditional GAN for Image Caption
 
               
             
@@ -397,7 +403,7 @@
                 
               
 
-              <time title="Created: 2019-04-05 10:11:17" itemprop="dateCreated datePublished" datetime="2019-04-05T10:11:17+08:00">2019-04-05</time>
+              <time title="Created: 2019-03-07 09:39:18" itemprop="dateCreated datePublished" datetime="2019-03-07T09:39:18+08:00">2019-03-07</time>
             
 
             
@@ -414,7 +420,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-20 20:39:52" itemprop="dateModified" datetime="2019-04-20T20:39:52+08:00">2019-04-20</time>
+                <time title="Modified: 2019-04-20 20:48:59" itemprop="dateModified" datetime="2019-04-20T20:48:59+08:00">2019-04-20</time>
               
             
           </span>
@@ -450,8 +456,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/04/05/P-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/04/05/P-2/" itemprop="commentCount"></span>
+                <a href="/2019/03/07/P-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/03/07/P-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -459,7 +465,7 @@
 
           
           
-            <span id="/2019/04/05/P-2/" class="leancloud_visitors" data-flag-title="papers - GAN for Sequence Generation">
+            <span id="/2019/03/07/P-1/" class="leancloud_visitors" data-flag-title="papers - Conditional GAN for Image Caption">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -497,30 +503,69 @@
       
 
       
-        <h1 id="SeqGAN-Sequence-Generative-Adversarial-Nets-with-Policy-Gradient"><a href="#SeqGAN-Sequence-Generative-Adversarial-Nets-with-Policy-Gradient" class="headerlink" title="SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient"></a>SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>首先来谈谈 GAN 的作用，GAN 在 CV 和 NLP 领域的应用还是有很大的区别的，在 CV 中，GAN 的主要作用是作为一个生成模型。而在 NLP 中，尤其接下来要介绍的文本生成领域，大部分用在 GAN 之前的常用的模型本身就是生成模型，那为什么要引入 GAN 呢？其实是为了解决传统 MLE 在训练过程中会出现 exposure bias 这个问题的，所以，<strong>GAN 在文本生成领域是作为一种训练方式出现的</strong>。</p>
-<p>再讲了 GAN 的作用后，我们再讲讲 GAN 在文本生成领域的一些进展和碰到的一些问题。GAN 在 NLP 最大的问题就是语言数据不像图像数据是连续的，更具体一些，GAN 直接应用到文本生成主要有两个问题（1）是离散的采样过程是不可导的，所以无法直接应用梯度更新（2）是判别器只有在序列完全生成以后才能进行打分。为了解决第一个问题，文章采用了强化学习的方法，针对第二个问题，可以使用 Monte Carlo 采样完整的句子进行打分。</p>
-<p><img src="/2019/04/05/P-2/img1.jpg" align="justify"></p>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>使用 policy gradient 来进行训练就是最大化 reward 期望：<br>$$J(\theta) = E(R_T|s_0,\theta) = \sum_{y_1\in Dictionary}G_{\theta}(y_1|s_0) \cdot Q_{D_{\phi}}^{G_{\theta}}(s_0,y_1)$$</p>
+        <h1 id="Conditional-Generative-Adversarial-Nets"><a href="#Conditional-Generative-Adversarial-Nets" class="headerlink" title="Conditional Generative Adversarial Nets"></a>Conditional Generative Adversarial Nets</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>conditional GAN 简称 cGAN 可以看作是 GAN 的一个比较简洁但是成功的变种，传统的 GAN 有这样的一个问题，就是生成的内容是完全随机的，很难对其进行控制，GAN 的公式是：<br>$$\mathop{min}_G \mathop{max}_D V(D,G) = E_{x\sim p_{data}(x)}[\mathop{log} D(x)] + E_{z\sim p_z(z)}[\mathop{log}(1-D(G(z)))]$$<br><code>z</code> 在这里是一个随机的噪声，也是生成模型的输入，所以 GAN 的生成内容是不可控的</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>把传统的 GAN 变成有条件的模型，引入一个条件 <code>y</code> 我们就可以控制我们想要生成的内容了，于是 cGAN 的 objective 变成了：<br>$$\mathop{min}_G \mathop{max}_D V(D,G) = E_{x\sim p_{data}(x|y)}[\mathop{log} D(x)] + E_{z\sim p_z(z)}[\mathop{log}(1-D(G(z|y)))]$$</p>
+<p>所以 cGAN 和 GAN 的区别主要在生成器和判别器上面，GAN 的输入只有一个，cGAN 的输入有两个，一个是噪声 <code>z</code> 另一个是 标签/特征/属性 <code>y</code>。至于具体的操作，一般就是将 <code>z</code> 和 <code>y</code> concate 起来</p>
+<p>  <img src="/2019/03/07/P-1/img5.jpg" width="400px"></p>
+<p>训练手段和流程应该是和 GAN 一样的。。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>至于实验结果就是如果 y 是 0 就生成下图第一排中的某个数字，y 是 6，就生成数字 6 那一排的某一个数字<br><img src="/2019/03/07/P-1/img6.jpg" align="justify"></p>
+<hr>
+<h1 id="Towards-Diverse-and-Natural-Image-Descriptions-via-a-Conditional-GAN"><a href="#Towards-Diverse-and-Natural-Image-Descriptions-via-a-Conditional-GAN" class="headerlink" title="Towards Diverse and Natural Image Descriptions via a Conditional GAN"></a>Towards Diverse and Natural Image Descriptions via a Conditional GAN</h1><h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><p>在这篇论文之前，做 image caption 大多都是使用 MLE 来进行训练的（强化学习的方法应该是同时期的产物），使用 MLE 训练得到的结果其实可以在一些 metrics（BLEU，CIDER） 上表现的比人类更出色了，但是生成的句子和人类讲出来的句子有很大的差异性，主要表现在句子比较生硬，也就是说之前大部分的方法注重句子的 <code>fidelity</code>，也就是生成的句子在 metrics 下打分高，但是忽视了句子的 <code>naturalness</code> 和 <code>diversity</code>，这些也是人说的话的特点。</p>
+<p>为了解决上面提到的问题，这篇论文第一次将 GAN 引入了 image caption 的任务当中，当然这里用到的是 conditional GAN（似乎 image caption 任务中只能用 conditional GAN）<br><img src="/2019/03/07/P-1/img3.jpg" width="600px"></p>
+<h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p><img src="/2019/03/07/P-1/img2.jpg" align="justify"></p>
 <blockquote>
-<p>$s_0$ 是开始状态，$y_1$ 是下一个待预测的单词 <br><br>$Q_{D_{\phi}}^{G_{\theta}}(s_0,y_1)$ 是 action-value 函数 <br></p>
+<p>a 是 G，b 是 E，c 是当前模型应用生成段落的技术</p>
 </blockquote>
-<p>action-value 函数的具体形式在这篇论文里面是其实就是判别器的分数：<br>$$Q_{D_{\phi}}^{G_{\theta}}(a = y_T,s_0=Y_{1:T-1}) = D_{\phi}(Y_{1:T})$$</p>
-<p>但是这个分数只有在获得完整的句子后才会打出，通过当前的前半段句子 $Y_{1:t}$ 我们可以通过 MC 采样来获得完整的句子：<br>$$\left[  Y_{1:T}^1,…,Y_{1:T}^N  \right]=MC^{G_{\beta}}(Y_{1:t};N)$$</p>
-<p>完整的 action-value 公式就变成了：</p>
-<p><img src="/2019/04/05/P-2/img2.jpg" width="500px"></p>
-<p>有了 reward，那么就可以来计算 policy gradient 的梯度了：</p>
+<p>整个框架包含一个生成器 G 和一个衡量器 E（判别器），G 其实和之前 MLE 方法中的 LSTM 没有区别，至于 E 是这样的：<br>$$r_{\eta}(I,S) = \sigma(\langle f(I, \eta_I), h(S, \eta_S \rangle ))$$</p>
 <ul>
-<li>预测到第 t 个词的梯度<br>$$\nabla_{\theta} J(\theta) = E_{Y_{1:t-1}\sim G_{\theta}}\left[ \sum_{y_t\in Dic}<br>\nabla_{\theta} G_{\theta} (y_t|Y_{1:t-1}) \cdot Q_{D_{\phi}}^{G_{\theta}}(Y_{1:t-1,y_t}) \right]$$</li>
-<li>完整的一句话的梯度<br>$$\nabla_{\theta} J(\theta) \simeq \frac{1}{T} \sum_{t=1}^T \sum_{y_t\in Dic}<br>\nabla_{\theta} G_{\theta} (y_t|Y_{1:t-1}) \cdot Q_{D_{\phi}}^{G_{\theta}}(Y_{1:t-1,y_t}) $$</li>
+<li>$F(I)$ 是 CNN 提取出的向量</li>
+<li>$h(S)$ 是 LSTM 生成的特征</li>
 </ul>
-<p>上面是 Generator 的训练方式，和传统 GAN 不同的是，这里用到了强化学习的方法，接下来是 Discriminator，判别器的训练方式还是比较传统的：</p>
-<p>$$\mathop{min}_{\phi} -E_{Y\sim p_{data}}[\mathop{log} D_{\phi}(Y)] - E_{Y\sim G_{\theta}}[\mathop{log}(1-D_{\phi}(Y))]$$</p>
-<p>另外判别器本质就是一个文本分类器</p>
-<p>整体的训练步骤如下图所示<br><img src="/2019/04/05/P-2/img3.jpg" align="justify"></p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>实验的 metric 是：<br>$$NLL_{oracle} = -E_{Y_{1:T}\sim G_{\theta}}[\sum_{t=1}^T \mathop{log} G_{oracle}(y_t|Y_{1:t-1})]$$<br>其中 $G_{\theta}$ 是生成的模型，而 $G_{oracle}$ 可以看作是 ground truth 生产器，或者说，就是人说的话，最后实验结果可以看到，在预训练完成后，GAN 的训练确实能提升生成的效果</p>
-<p><img src="/2019/04/05/P-2/img4.jpg" align="justify"></p>
-<p>#</p>
-<h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><h1 id="SentiGAN-Generating-Sentimental-Texts-via-Mixture-Adversarial-Networks"><a href="#SentiGAN-Generating-Sentimental-Texts-via-Mixture-Adversarial-Networks" class="headerlink" title="SentiGAN: Generating Sentimental Texts via Mixture Adversarial Networks"></a>SentiGAN: Generating Sentimental Texts via Mixture Adversarial Networks</h1><h2 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Method-2"><a href="#Method-2" class="headerlink" title="Method"></a>Method</h2><h2 id="Conclusion-2"><a href="#Conclusion-2" class="headerlink" title="Conclusion"></a>Conclusion</h2>
+<p>最后问题可以建模成一个 minimax 问题：<br>$$\mathop{min}_{\theta} \mathop{max}_{\eta} L(G_{\theta}, E_{\eta})$$<br>L 具体可以写成：<br>$$E_{S\sim P_I} [\mathop{log} r_{\eta}(I,S)] + E_{z\sim N_0}[\mathop{log}(1-r_{\eta}(I,G_{\theta}(I,z)))]$$</p>
+<ul>
+<li>$P_I$ 是 ground truth 的句子</li>
+<li>$N_0$ 是标准高斯分布，应该是用来生成噪声 $z$ 的</li>
+</ul>
+<h3 id="Training-G"><a href="#Training-G" class="headerlink" title="Training G"></a>Training G</h3><p>和传统做图像的 GAN 不一样，用来生成句子的 GAN 有离散采样的过程，这个过程是不可导的，所以可以使用 policy gradient 来解决这一问题，这个条件策略可以写成：<br>$$\pi_{\theta} (w_t | f(I), z, S_{1:t-1})$$</p>
+<p>一般 reward 是通过完整的句子来计算的，但是直接对于完整的句子进行计算会有一些问题，比如 gradient vanishing，所以我们希望能在半途就能对句子打分，这个方法在论文里面叫做 early feedback，在 seqGAN 里面其实就是用 rollout 进行 MC 采样。某一截句子的 expected future reward 是这样定义的：<br>$$V_{\theta,\eta}(I,z,S_{1:t}) = E_{S_{t+1:T \sim G_{\theta}(I,z)}}[r_{\eta}(I,S_{1:t}\oplus S_{t+1:T})]$$</p>
+<ul>
+<li>求期望 E 这里可以通过多次采样来逼近</li>
+</ul>
+<p>最后 G 的参数 $\theta$ 的梯度表示为：<br>$$E\left[ \sum_{t=1}^{T_{max}} \sum_{w_t \in V} \nabla_{\theta} \pi_{\theta} (w_t |I,z,S_{1:t-1}) \cdot V_{\theta^{\prime},\psi}(I,z,S_{1:t}\oplus w_t)   \right]$$</p>
+<h3 id="Training-E"><a href="#Training-E" class="headerlink" title="Training E"></a>Training E</h3><p>E 的作用是判断句子 S 是否合理的描述了图片 I 的。论文把句子分成了三部分来做训练</p>
+<ul>
+<li>$S_I$: 人类提供的对于当前图片的描述</li>
+<li>$S_G$: 产自生成器 G 的句子</li>
+<li>$S_{\setminus I}$: 人类提供的但不是对于当前图片的描述</li>
+</ul>
+<p>判别器 E 整体的 loss 是：<br>$$\mathop{max}_{\eta} L_E(\eta) = \frac{1}{N}\sum_{i=1}^N L_E(I_i;\eta)$$</p>
+<ul>
+<li>N 代表所有图片的数量</li>
+</ul>
+<p>对于每一张图片的 loss 可以表示为：<br>$$L_E(I;\eta) = E_{S\in S_I} \mathop{log} r_{\eta} (I,S)+\alpha E_{S\in S_G} \mathop{log}(1-r_{\eta}(I,S)) + \beta E_{S\in S_{\setminus I}} \mathop{log}(1-r_{\eta}(I,S))$$</p>
+<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>实验结果肯定是在打分上和 MLE 有距离，但是要知道，human 表现在打分上依旧和 MLE 有距离，相反，GAN 和 human 的打分比较接近说明 GAN 的结果更能接近人的表现，这篇文章还将段落生成的技术应用到了 caption 任务中，具体实现方法是另一篇提出的，我就不赘述了。<br><img src="/2019/03/07/P-1/img4.jpg" align="justify"></p>
+<hr>
+<h1 id="Improving-Image-Captioning-with-Conditional-Generative-Adversarial-Nets"><a href="#Improving-Image-Captioning-with-Conditional-Generative-Adversarial-Nets" class="headerlink" title="Improving Image Captioning with Conditional Generative Adversarial Nets"></a>Improving Image Captioning with Conditional Generative Adversarial Nets</h1><h2 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction"></a>Introduction</h2><p>使用 GAN 做 image caption 生成的句子会比较的像人说出来的，但是在 metrics 上的打分非常的低。。相反，使用 MLE 做 image caption 生成的句子得分会比较的高，但是看上去不怎么自然，所以这篇论文提出来一种能够兼顾两种优点的训练方式。</p>
+<h2 id="Method-2"><a href="#Method-2" class="headerlink" title="Method"></a>Method</h2><h3 id="Image-Caption-Via-RL"><a href="#Image-Caption-Via-RL" class="headerlink" title="Image Caption Via RL"></a>Image Caption Via RL</h3><p>这篇论文采用的是强化学习的策略进行训练的，每个句子定义一个 reward，那么最后 G 的整体 reward 就是：<br>$$L_G(\theta) = E_{x^s\sim G_{\theta}}[r(x^s)]$$<br>上面的期望在实际操作中可以通过 MC 采样来近似，然后对上面的 rewards 求梯度得到<br>$$\nabla_{\theta} L_G(\theta) = \sum_{t=1}^{T_s}(r(x_{1:t}^s - b))\nabla_{\theta} \mathop{log} G_{\theta} (x_t^s|x_{1:t-1}^s)$$</p>
+<p><img src="/2019/03/07/P-1/img8.jpg" align="justify"></p>
+<p>这篇论文关键在于 reward 函数的设定，之前 17 年最先用 cGAN 做 caption，reward 是自己定义的一个神经网络函数，后面一些强化学习的方法，reward 就是 metrics 的打分，这篇论文结合来起来：<br>$$r(\bar{x}|I,x) = \lambda \cdot p +(1- \lambda) \cdot s= \lambda \cdot D_{\phi}(\bar{x}|I) + (1-\lambda)\cdot Q(\bar{x}|x)$$</p>
+<ul>
+<li>$p$ Discriminator 的打分</li>
+<li>$s$ 是 metric CIDER 的打分</li>
+</ul>
+<h3 id="Discriminator"><a href="#Discriminator" class="headerlink" title="Discriminator"></a>Discriminator</h3><p><img src="/2019/03/07/P-1/img7.jpg" align="justify"><br>这篇文章的 Discriminator 采用了两个结构，一个是 CNN 另一个是 RNN</p>
+<p>CNN-based discriminator 其实就是一个用 CNN 做文本分类的模型，实现细节不是论文的核心，就跳过了。。RNN-based discriminator 就是 LSTM ，最后的隐含层 softmax 生成一个 scalar。<br><strong>值得注意的是，这两个 Discriminator 都有将图像的特征信息 v 作为 D 的输入</strong></p>
+<p>和之前的论文一样，句子同样分成了三个集合来对 D 进行训练</p>
+<ul>
+<li>$S_r$：real sentenses</li>
+<li>$S_f$：fake sentenses</li>
+<li>$S_w$：wrong sentenses</li>
+</ul>
+<p>最后 D 的 loss 定义为：</p>
+<p><img src="/2019/03/07/P-1/img.jpg" width="400px"></p>
+<h3 id="Training-Algorithm"><a href="#Training-Algorithm" class="headerlink" title="Training Algorithm"></a>Training Algorithm</h3><p><img src="/2019/03/07/P-1/img9.jpg" width="500px"></p>
+<h2 id="Conclusion-2"><a href="#Conclusion-2" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>实验结果如下，可以发现，效果还是很不错的，两个不同的 D 训练出来的网络还可以做 ensemble，具体实现的流程就是每次做 sample 的时候，对于概率求一个平均吧.<br><img src="/2019/03/07/P-1/img10.jpg" align="justify"><br>这篇论文的贡献应该是使用了两种 Discriminator，同时对 reward 函数做了混合了，包括判别器和标准的度量</p>
+
       
     </div>
 
@@ -545,7 +590,7 @@
           
             <a href="/tags/GAN/" rel="tag"># GAN</a>
           
-            <a href="/tags/NLG/" rel="tag"># NLG</a>
+            <a href="/tags/IC/" rel="tag"># IC</a>
           
         </div>
       
@@ -570,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/05/P-3/" rel="next" title="papers - VAE for Sequence Generation">
-                <i class="fa fa-chevron-left"></i> papers - VAE for Sequence Generation
+              <a href="/2019/03/04/E-Variational-Auto-Encoding/" rel="next" title="Variational Auto Encoding">
+                <i class="fa fa-chevron-left"></i> Variational Auto Encoding
               </a>
             
           </div>
@@ -579,6 +624,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/05/P-3/" rel="prev" title="papers - VAE for Sequence Generation">
+                papers - VAE for Sequence Generation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -759,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SeqGAN-Sequence-Generative-Adversarial-Nets-with-Policy-Gradient"><span class="nav-number">1.</span> <span class="nav-text">SeqGAN: Sequence Generative Adversarial Nets with Policy Gradient</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">1.4.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">1.5.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">1.6.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SentiGAN-Generating-Sentimental-Texts-via-Mixture-Adversarial-Networks"><span class="nav-number">2.</span> <span class="nav-text">SentiGAN: Generating Sentimental Texts via Mixture Adversarial Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-2"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-2"><span class="nav-number">2.2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-2"><span class="nav-number">2.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Conditional-Generative-Adversarial-Nets"><span class="nav-number">1.</span> <span class="nav-text">Conditional Generative Adversarial Nets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Towards-Diverse-and-Natural-Image-Descriptions-via-a-Conditional-GAN"><span class="nav-number">2.</span> <span class="nav-text">Towards Diverse and Natural Image Descriptions via a Conditional GAN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">2.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-G"><span class="nav-number">2.2.1.</span> <span class="nav-text">Training G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-E"><span class="nav-number">2.2.2.</span> <span class="nav-text">Training E</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">2.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Improving-Image-Captioning-with-Conditional-Generative-Adversarial-Nets"><span class="nav-number">3.</span> <span class="nav-text">Improving Image Captioning with Conditional Generative Adversarial Nets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-2"><span class="nav-number">3.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-2"><span class="nav-number">3.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Caption-Via-RL"><span class="nav-number">3.2.1.</span> <span class="nav-text">Image Caption Via RL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discriminator"><span class="nav-number">3.2.2.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-Algorithm"><span class="nav-number">3.2.3.</span> <span class="nav-text">Training Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-2"><span class="nav-number">3.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
             
 
           </div>
