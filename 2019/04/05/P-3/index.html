@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img9.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img10.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img7.jpg">
-<meta property="og:updated_time" content="2019-04-20T14:03:03.499Z">
+<meta property="og:updated_time" content="2019-04-20T14:08:03.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="papers - VAE for Sequence Generation">
 <meta name="twitter:description" content="Generating Sentences from a Continuous SpaceIntroduction和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。  VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log">
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-20 22:03:03" itemprop="dateModified" datetime="2019-04-20T22:03:03+08:00">2019-04-20</time>
+                <time title="Modified: 2019-04-20 22:08:03" itemprop="dateModified" datetime="2019-04-20T22:08:03+08:00">2019-04-20</time>
               
             
           </span>
@@ -526,7 +526,7 @@
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>实验结果表示 VAE 能够在连续的空间生成具有多样性的句子</p>
 <p><img src="/2019/04/05/P-3/img7.jpg" align="justify"></p>
 <blockquote>
-<p>上图的实验结果是这样的，假设最上面的句子经过 encoder 得到隐变量 z1，最下面的句子经过 encoder 得到隐变量 z2，对于 z1 和 z2 之间按照等差数列均匀采样得到一系列的 z ，把这些 z 放到 decoder RNN 中就会生成中间的那些句子了</p>
+<p>上图的实验结果是这样的，假设最上面的句子经过 encoder 得到隐变量 z1，最下面的句子经过 encoder 得到隐变量 z2，对于 z1 和 z2 之间按照等差数列均匀采样得到一系列的 z ，把这些 z 放到 decoder RNN 中就会生成中间的那些句子了。可以发现，从句子逐渐从上到下有一个演变的过程，相邻的两个句子之间是有一定的相似度的</p>
 </blockquote>
 <p>#</p>
 <h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里面有两个loss，一个是让VAE能够encode和decode出相同的信息，另一个是用discriminator来监督cc的生成。<br>但是实际上还增加了一个，就是将生成的样本再用encoder输出一个新的zz，用这个zz同原本的zz进行比较。说是可以确保zz和cc的独立性。</p>
