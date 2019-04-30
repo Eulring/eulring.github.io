@@ -111,7 +111,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img9.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img10.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img7.jpg">
-<meta property="og:updated_time" content="2019-04-20T14:08:03.087Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/05/P-3/img11.jpg">
+<meta property="og:updated_time" content="2019-04-30T01:43:43.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="papers - VAE for Sequence Generation">
 <meta name="twitter:description" content="Generating Sentences from a Continuous SpaceIntroduction和 GAN 一样，VAE 最早是用在图像中的，然后才在自然语言中开始流行。作为生成模型，和 GAN 相比，VAE 更加成熟而且表现的效果也更加好。  VAE 的 objective 形式是:$$L(\theta, \phi, x^i) = E_{q_{\phi}(z|x^i)}[\log">
@@ -417,7 +418,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-20 22:08:03" itemprop="dateModified" datetime="2019-04-20T22:08:03+08:00">2019-04-20</time>
+                <time title="Modified: 2019-04-30 09:43:43" itemprop="dateModified" datetime="2019-04-30T09:43:43+08:00">2019-04-30</time>
               
             
           </span>
@@ -528,11 +529,30 @@
 <blockquote>
 <p>上图的实验结果是这样的，假设最上面的句子经过 encoder 得到隐变量 z1，最下面的句子经过 encoder 得到隐变量 z2，对于 z1 和 z2 之间按照等差数列均匀采样得到一系列的 z ，把这些 z 放到 decoder RNN 中就会生成中间的那些句子了。可以发现，从句子逐渐从上到下有一个演变的过程，相邻的两个句子之间是有一定的相似度的</p>
 </blockquote>
-<p>#</p>
-<h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里面有两个loss，一个是让VAE能够encode和decode出相同的信息，另一个是用discriminator来监督cc的生成。<br>但是实际上还增加了一个，就是将生成的样本再用encoder输出一个新的zz，用这个zz同原本的zz进行比较。说是可以确保zz和cc的独立性。</p>
-<h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p>021-38168873</p>
-<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>#</p>
-<h2 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Method-2"><a href="#Method-2" class="headerlink" title="Method"></a>Method</h2><h2 id="Conclusion-2"><a href="#Conclusion-2" class="headerlink" title="Conclusion"></a>Conclusion</h2>
+<h1 id="Towards-Controlled-Generation-of-Text"><a href="#Towards-Controlled-Generation-of-Text" class="headerlink" title="Towards Controlled Generation of Text"></a>Towards Controlled Generation of Text</h1><h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><h2 id="Method-1"><a href="#Method-1" class="headerlink" title="Method"></a>Method</h2><p>再讲具体的算法之前，先回顾一下作为 objective loss 的一些熵</p>
+<p><strong>Shannon Entropy</strong> :<br>  $$H(X) = - \sum_{i=1}^N p_i \mathop{log}p_i$$</p>
+<p><strong>Cross Entropy</strong> :<br>$$H(p, q) = E_p[-\mathop{log}q] = - \sum_{i=1}^N p_i \mathop{log}q_i$$</p>
+<h3 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h3><p>整个 VAE 的过程还是在最小化给定的真实句子的最小重建误差，以及对于 encoder 的正则化，目标是让其尽量的服从假设的分布 $p(z)$：<br>$$L_{VAE}(\theta_G, \theta_E; x) = KL(q_E(z|x)||p(z)) - E_{q_E(z|x)q_D(c|x)} [\mathop{log} p_G(x|z,c)]$$</p>
+<blockquote>
+<p>论文中，这是 equation（4）</p>
+</blockquote>
+<p>对于生成模型，我们希望它生成的句子是指定的带有某种属性 c 的，也就是生成的句子在 discriminator 的判断下是属性 c 的概率能经可能的大，于是有了如下的 loss：<br>$$L_{Att,c}(\theta_G) = - E_{p(z)p(c)} [\mathop{log} q_D(c|\bar{G}_{\tau}(z,c))]$$</p>
+<p>paper中接下来又提出了很亮的一点。作者为了保证属性之间的独立性，使其不产生相互干扰，即D只优化目标属性而不会对其他属性进行优化，又特意的强制其他不相干的属性要在隐变量z中被完全的表示出来。而且这个任务作者并没有去训练一个新的判别器，而是直接将VAE中的编码器E拿过来使用的。文中提到，因为E对于z的作用和D对于c的作用可以视为一样的，都是将文</p>
+<p>$$L_{Att,z}(\theta_G) = - E_{p(z)p(c)} [\mathop{log} q_D(z|\bar{G}_{\tau}(z,c))]$$</p>
+<p><strong>generator objective</strong></p>
+<p>$$min_{\theta_G}L_G = L_{VAE} + \lambda_c L_{Att,c} + \lambda_z L_{Att,z}$$</p>
+<blockquote>
+<p>论文中，这是 equation（8）</p>
+</blockquote>
+<h3 id="Discriminator"><a href="#Discriminator" class="headerlink" title="Discriminator"></a>Discriminator</h3><p>针对判别器的训练，这篇论文有两个 loss，一个是 $l_s$，和其他方法一样，把训练集的真实的句子当作训练样本，就是希望对于每一个真实的句子 $x$ 以及它对应的标签 $c$，判别器能准确的作出判断：<br>$$L_s(\theta_D) = - E_{X_L}[\mathop{log}(c_L|x_L)]$$</p>
+<p>另外一个 loss $l_u$ 就是将 G 生成的句子当作额外的数据当作输入，从而达到数据增广的效果，可以看到下面有两项，前面一项和上面的一样是交叉熵，后面一项是香农熵 <strong>（香农熵越小，得到的关于 c 的分布越接近 one-hot vector）</strong>：<br>$$L_u(\theta_D) = -E_{p_G(\hat{x}|z,c)p(z)p(c)} [\mathop{log}q_D(c|\hat{x}) + \beta H(q_D(c^{\prime}|\hat{x}))]$$</p>
+<p>最后总的 loss 就是结合上面两个 loss 的结果：<br>$$min_{\theta_D}L_D = L_s + \lambda_u L_u$$</p>
+<blockquote>
+<p>论文中，这是 equation（11）</p>
+</blockquote>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p><img src="/2019/04/05/P-3/img11.jpg" align="justify"></p>
+<h2 id="Conclusion-1"><a href="#Conclusion-1" class="headerlink" title="Conclusion"></a>Conclusion</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://blog.csdn.net/qq_35575638/article/details/81590025" target="_blank" rel="noopener">https://blog.csdn.net/qq_35575638/article/details/81590025</a></p>
+
       
     </div>
 
@@ -777,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generating-Sentences-from-a-Continuous-Space"><span class="nav-number">1.</span> <span class="nav-text">Generating Sentences from a Continuous Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-cost-annealing"><span class="nav-number">1.2.1.</span> <span class="nav-text">KL cost annealing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-dropout"><span class="nav-number">1.2.2.</span> <span class="nav-text">Word dropout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-VAE-Pipeline"><span class="nav-number">1.2.3.</span> <span class="nav-text">Sentence VAE Pipeline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">1.4.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">1.5.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">1.6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-2"><span class="nav-number">1.7.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-2"><span class="nav-number">1.8.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-2"><span class="nav-number">1.9.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generating-Sentences-from-a-Continuous-Space"><span class="nav-number">1.</span> <span class="nav-text">Generating Sentences from a Continuous Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#KL-cost-annealing"><span class="nav-number">1.2.1.</span> <span class="nav-text">KL cost annealing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word-dropout"><span class="nav-number">1.2.2.</span> <span class="nav-text">Word dropout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sentence-VAE-Pipeline"><span class="nav-number">1.2.3.</span> <span class="nav-text">Sentence VAE Pipeline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Towards-Controlled-Generation-of-Text"><span class="nav-number">2.</span> <span class="nav-text">Towards Controlled Generation of Text</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-1"><span class="nav-number">2.2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generator"><span class="nav-number">2.2.1.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discriminator"><span class="nav-number">2.2.2.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training"><span class="nav-number">2.2.3.</span> <span class="nav-text">Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-1"><span class="nav-number">2.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
