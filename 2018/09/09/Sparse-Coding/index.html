@@ -96,28 +96,25 @@
 
 
 
-  <meta name="description" content="Discrete Multivariate R.V.sDefinition (Joint CDF) The Joint CDf of r.v.s $X$ and $Y$ is the function $F_{X,Y}$ given by$$F_{X,Y}(x,y) = P(X\leq x,Y\leq y)$$ Definition (Joint PMF) The Joint PMF of dis">
-<meta name="keywords" content="MATH">
+  <meta name="description" content="神经学启发稀疏编码的概念来自于神经生物学。生物学家提出，哺乳类动物在长期的进化中，生成了能够快速，准确，低代价地表示自然图像的视觉神经方面的能力。我们直观地可以想象，我们的眼睛每看到的一副画面都是上亿像素的，而每一副图像我们都只用很少的代价重建与存储。我们把它叫做稀疏编码，即Sparse Coding。 从上可以看出稀疏编码的目的是：在大量的数据集中，选取很小部分作为元素来重建新的数据。  数学推">
+<meta name="keywords" content="ML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stochastic-Process (Multivariate)">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/Stochastic-Process-6/index.html">
+<meta property="og:title" content="Sparse-Coding">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/Sparse-Coding/index.html">
 <meta property="og:site_name" content="Eulring">
-<meta property="og:description" content="Discrete Multivariate R.V.sDefinition (Joint CDF) The Joint CDf of r.v.s $X$ and $Y$ is the function $F_{X,Y}$ given by$$F_{X,Y}(x,y) = P(X\leq x,Y\leq y)$$ Definition (Joint PMF) The Joint PMF of dis">
+<meta property="og:description" content="神经学启发稀疏编码的概念来自于神经生物学。生物学家提出，哺乳类动物在长期的进化中，生成了能够快速，准确，低代价地表示自然图像的视觉神经方面的能力。我们直观地可以想象，我们的眼睛每看到的一副画面都是上亿像素的，而每一副图像我们都只用很少的代价重建与存储。我们把它叫做稀疏编码，即Sparse Coding。 从上可以看出稀疏编码的目的是：在大量的数据集中，选取很小部分作为元素来重建新的数据。  数学推">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/07/29/Stochastic-Process-6/img1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/07/29/Stochastic-Process-6/img2.jpg">
-<meta property="og:updated_time" content="2018-10-10T07:19:44.403Z">
+<meta property="og:updated_time" content="2018-09-09T07:48:19.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stochastic-Process (Multivariate)">
-<meta name="twitter:description" content="Discrete Multivariate R.V.sDefinition (Joint CDF) The Joint CDf of r.v.s $X$ and $Y$ is the function $F_{X,Y}$ given by$$F_{X,Y}(x,y) = P(X\leq x,Y\leq y)$$ Definition (Joint PMF) The Joint PMF of dis">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/29/Stochastic-Process-6/img1.jpg">
+<meta name="twitter:title" content="Sparse-Coding">
+<meta name="twitter:description" content="神经学启发稀疏编码的概念来自于神经生物学。生物学家提出，哺乳类动物在长期的进化中，生成了能够快速，准确，低代价地表示自然图像的视觉神经方面的能力。我们直观地可以想象，我们的眼睛每看到的一副画面都是上亿像素的，而每一副图像我们都只用很少的代价重建与存储。我们把它叫做稀疏编码，即Sparse Coding。 从上可以看出稀疏编码的目的是：在大量的数据集中，选取很小部分作为元素来重建新的数据。  数学推">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/29/Stochastic-Process-6/">
+  <link rel="canonical" href="http://yoursite.com/2018/09/09/Sparse-Coding/">
 
 
 
@@ -127,7 +124,7 @@
   };
 </script>
 
-  <title>Stochastic-Process (Multivariate) | Eulring</title>
+  <title>Sparse-Coding | Eulring</title>
   
 
 
@@ -352,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/29/Stochastic-Process-6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/Sparse-Coding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JunYi Bian">
@@ -369,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stochastic-Process (Multivariate)
+          <h1 class="post-title" itemprop="name headline">Sparse-Coding
 
               
             
@@ -395,24 +392,12 @@
                 
               
 
-              <time title="Created: 2018-07-29 08:41:09" itemprop="dateCreated datePublished" datetime="2018-07-29T08:41:09+08:00">2018-07-29</time>
+              <time title="Created: 2018-09-09 09:21:38 / Modified: 15:48:19" itemprop="dateCreated datePublished" datetime="2018-09-09T09:21:38+08:00">2018-09-09</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-10-10 15:19:44" itemprop="dateModified" datetime="2018-10-10T15:19:44+08:00">2018-10-10</time>
               
             
           </span>
@@ -430,8 +415,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/07/29/Stochastic-Process-6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/29/Stochastic-Process-6/" itemprop="commentCount"></span>
+                <a href="/2018/09/09/Sparse-Coding/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/09/Sparse-Coding/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -439,7 +424,7 @@
 
           
           
-            <span id="/2018/07/29/Stochastic-Process-6/" class="leancloud_visitors" data-flag-title="Stochastic-Process (Multivariate)">
+            <span id="/2018/09/09/Sparse-Coding/" class="leancloud_visitors" data-flag-title="Sparse-Coding">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -477,72 +462,21 @@
       
 
       
-        <h1 id="Discrete-Multivariate-R-V-s"><a href="#Discrete-Multivariate-R-V-s" class="headerlink" title="Discrete Multivariate R.V.s"></a>Discrete Multivariate R.V.s</h1><p><strong>Definition (Joint CDF)</strong> The Joint CDf of r.v.s $X$ and $Y$ is the function $F_{X,Y}$ given by<br>$$F_{X,Y}(x,y) = P(X\leq x,Y\leq y)$$</p>
-<p><strong>Definition (Joint PMF)</strong> The Joint PMF of discrete r.v.s $X$ and $Y$ is the function $p_{X,Y}$ given by<br>$$p_{X,Y}(x,y) = P(X=x,Y=y)$$</p>
-<p><strong>Definition (Marginal PMF)</strong> For discrete r.v.s $X$ and $Y$, Marginal PMF of $X$ is<br>$$P(X=x) = \sum_y P(X=x,Y=y)$$</p>
-<p><strong>Definition (Conditional PMF)</strong> For discrete r.v.s $X$ and $Y$, the Conditional PMF of $X$ given $Y=y$ is<br>$$P_{X|Y}(x|y) = P(X=x|Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)}$$</p>
-<p><strong>Definition (Independence of Discrete R.V.s)</strong> Random variables $X$ and $Y$ are independent if for all x and y<br>$$F_{X,Y}(x,y) = F_X(x) F_Y(y)$$<br>for all x and y also equivalent to the condition</p>
-<h2 id="P-Y-y-X-x-P-Y-y"><a href="#P-Y-y-X-x-P-Y-y" class="headerlink" title="$$P(Y=y|X=x) = P(Y=y)$$"></a>$$P(Y=y|X=x) = P(Y=y)$$</h2><h1 id="Continuous-Multivariate-R-V-s"><a href="#Continuous-Multivariate-R-V-s" class="headerlink" title="Continuous Multivariate R.V.s"></a>Continuous Multivariate R.V.s</h1><p><strong>Definition (Joint PDF)</strong> If $X$ and $Y$ are continuous with joint CDF $F_{X,Y}$ then<br>$$f_{X,Y}(x,y) = \frac{\partial^2}{\partial x \partial y} F_{X,Y}(x,y)$$</p>
-<p><strong>Definition (Marginal PDF)</strong> If $X$ and $Y$ are continuous with joint PDF $f_{X,Y}$ then<br>$$f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy$$</p>
-<p><strong>Definition (Conditional PDF)</strong> For continuous r.v.s. $X$ and $Y$ with joint PDF $f_{X,Y}$ the Conditional PDF of $Y$ given $X=x$ is<br>$$f_{Y|X}(y|x)= \frac{f_{X,Y}(x,y)}{f_X(x)}$$</p>
-<p><strong>Definition (Independence of Continuous R.V.s)</strong> Random variables $X$ and $Y$ are independent if for all x and y<br>$$F_{X,Y}(x,y) = F_X(x)F_Y(y)$$<br>If $X$ and  $Y$ are continuous with joint PDF $f_{X,Y}$<br>$$f_{X,Y}(x,y) = f_X(x) f_Y(y)$$</p>
-<p><strong>Theorem (2D LOTUS)</strong> Let g be a function from $R^2$ to $R$</p>
-<p>If $X$ and $Y$ are discrete<br>$$E(g(X,Y)) = \sum_x \sum_y g(x,y) P(X=x,Y=y)$$<br>If $X$ and $Y$ are continuous<br>$$E(g(X,Y)) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dxdy$$</p>
-<h3 id="General-Bayes’-Rule"><a href="#General-Bayes’-Rule" class="headerlink" title="General Bayes’ Rule"></a>General Bayes’ Rule</h3><p><img src="/2018/07/29/Stochastic-Process-6/img1.jpg" align="justify"></p>
+        <h1 id="神经学启发"><a href="#神经学启发" class="headerlink" title="神经学启发"></a>神经学启发</h1><p>稀疏编码的概念来自于神经生物学。生物学家提出，哺乳类动物在长期的进化中，生成了能够快速，准确，低代价地表示自然图像的视觉神经方面的能力。我们直观地可以想象，我们的眼睛每看到的一副画面都是上亿像素的，而每一副图像我们都只用很少的代价重建与存储。我们把它叫做稀疏编码，即Sparse Coding。</p>
+<p>从上可以看出稀疏编码的目的是：在大量的数据集中，选取很小部分作为元素来重建新的数据。</p>
 <hr>
-<h1 id="Convariance-and-Correlation"><a href="#Convariance-and-Correlation" class="headerlink" title="Convariance and Correlation"></a>Convariance and Correlation</h1><p><strong>Covariance</strong></p>
+<h1 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h1><p>稀疏编码是一种 unsupervised learning，我们希望找到一组 over-complete 的 基向量 basic vector 来表示我们的数据，也就是数据 $\textbf{x}$ 可以表示为这些基向量的线性组合：<br>$$<br>  \textbf{x} = \sum_{i=1}^k a_i \phi_i<br>$$<br>对于基向量的学习，我们一般有一组训练数据，另外，基向量的大小规定为 $\textbf{x}\in R^n$，同时，也是数据的大小。一般来讲，$n$ 维的数据最多只需要 $n$ 个线性不相关的基向量就可以了（使用 PCA），但是就 n 个基向量的话，可能有一个现象就是，没个数据可能都需要接近 n 个基向量来表示，我们希望 稀疏编码 能有一个优势，就是组成数据的基向量个数尽可能的小一些，也就是上面的 $\mathbf{a}$ 是稀疏的。。。</p>
+<p>为了达成这个目的，我们可以增加基向量的个数 $k  &gt; n$，也就是说，一个数据，可能由多种基向量来表示了，在所有的表示中，我们可以尽可能的选取稀疏的表示方法。。</p>
+<p>Sparse Coding 可以分为两个部分，一个是 Training 阶段，一个是 Coding阶段</p>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p>给定一些列样本数据 $[ x_1,x_2,… x_m]$ 我们希望学到一组基 $[ \phi_1,\phi_2,…,\phi_k  ]$ 来表示前面的数据，训练的 objective function 如下：<br>$$\mathop{min}_{a,\phi} \sum_{i=1}^m \left \Vert x_i-\sum_{j=1}^k a_{i,j}\phi_j \right \Vert^2 + \lambda \sum_{i=1}^m \sum_{j=1}^k |a_{i,j}|<br>$$<br>优化的迭代分为两部（都可以用凸优化来求解）</p>
 <ul>
-<li>Measure a tendency of two r.v.s $X\&amp;Y$ to go up or down together</li>
-<li>Positive Covariance: $X$ go up, $Y$ tends go up</li>
-<li>Negative Covariance: $X$ go up, $Y$ tends go down</li>
+<li>固定字典 $\phi$ 更新 $a$，这个问题其实就是一个 Lasso 问题</li>
+<li>固定表达 $a$ 更新 $\phi$，这个其实就是一个 QP 问题</li>
 </ul>
-<p><strong>Definition (Covariance)</strong> The covariance between r.v.s $X$ and $Y$ is<br>$$Cov(X,Y) = E((X-EX)(Y-EY))=E(XY)-E(X)E(Y)$$</p>
-<p><strong>Theorem (Uncorrelated)</strong> If $X$ and $Y$ are independent, then they are Uncorrelated($Cov(X,Y)=0$)</p>
-<h3 id="Properties-of-Covariance"><a href="#Properties-of-Covariance" class="headerlink" title="Properties of Covariance"></a>Properties of Covariance</h3><ul>
-<li>$Cov(X,X) = Var(X)$</li>
-<li>$Cov(X,Y) = Cov(Y,X)$</li>
-<li>$Cov(X,c) = 0$</li>
-<li>$Cov(a\cdot X,Y) = a\cdot Cov(X,Y)$</li>
-<li>$Cov(X+Y,Z) = Cov(X,Z)+Cov(Y,Z)$</li>
-<li>$Cov(X+Y,W+Z) = Cov(X,Z)+Cov(X,W)+Cov(Y,Z)+Cov(Y,W)$</li>
-<li>$Var(X+Y) = Var(X)+Var(Y) + 2Cov(X,Y)$</li>
-<li>For n r.v.s $X_1,\dotsb ,X_n$ $$Var(X_1+\dotsb +X_n)=Var(X_a)+\dotsb+Var(X_n)+2\sum_{i&lt;j}Cov(X_i,Y_j)$$</li>
-</ul>
-<p><strong>Definition (Correlation)</strong> The Correlation between r.v.s $X$ and $Y$ is<br>$$Corr(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$$<br><em>Shifting and Scaling $X$ and $Y$ has no effect on correlation</em><br><img src="/2018/07/29/Stochastic-Process-6/img2.jpg" align="justify"></p>
-<p><strong>Theorem (Correlation Bounds)</strong> For any r.v.s $X$ and $Y$<br>$$-1\leq Corr(X,Y) \leq 1$$</p>
+<h3 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h3><p>给定一个新的数据，获得它关于字典的表达，这一步，其实就是上面的优化的第二步</p>
+<p>$$\mathop{min}_{a} \sum_{i=1}^m \left \Vert x_i-\sum_{j=1}^k a_{i,j}\phi_j \right \Vert^2 + \lambda \sum_{i=1}^m \sum_{j=1}^k |a_{i,j}|<br>$$</p>
 <hr>
-<h1 id="Change-of-Variables"><a href="#Change-of-Variables" class="headerlink" title="Change of Variables"></a>Change of Variables</h1><p><strong>Theorem (Change of Variables in One Dimension)</strong> Let $X$ be a continuous r.v. with PDF $f_X$, and let $Y = g(X)$, where $g$ is differentiable and strictly increasing. Then the PDF of $Y$ is given by<br>$$f_Y(y) = f_X(x) \left|  \frac{dx}{dy} \right|$$<br>where $x = g^{-1}(y)$</p>
-<p><strong><em>Proof</em></strong>:<br>$$F_Y(y) = P(Y\leq y)=P(g(X)\leq y)=P(X\leq g^{-1}(y))=F_X(g^{-1}(y))=F_X(x)$$<br>Then result obtained By the chain rule</p>
-<p><strong>Theorem (Change of Variables)</strong> Let $X = (X_1,…,X_n)$ be a continuous random vector with joint PDF $f_X(x)$ and $Y=g(X)$, $g$ is an invertible function from $R^n$ to $R^n$ then $\frac{\partial \mathbf{x}}{\partial \mathbf{y}}$ form a <strong><em>Jacobian  matrix</em></strong><br>$$\frac{\partial \mathbf{x}}{\partial \mathbf{y}} =<br>\left( \begin{array}{cccc}<br>\frac{\partial x_1}{\partial y_1} &amp; \frac{\partial x_1}{\partial y_2} &amp; \dotsb &amp; \frac{\partial x_1}{\partial y_n} \\<br>\vdots &amp; \vdots &amp; &amp; \vdots \\<br>\frac{\partial x_n}{\partial y_1} &amp; \frac{\partial x_n}{\partial y_2} &amp; \dotsb &amp; \frac{\partial x_n}{\partial y_n} \\<br>\end{array} \right)<br>$$</p>
-<p>Then the joint PDF of $Y$ is<br>$$f_Y(y) = f_X(x) \left| \frac{\partial \mathbf{x}}{\partial \mathbf{y}} \right|$$</p>
-<hr>
-<h1 id="Convolutions"><a href="#Convolutions" class="headerlink" title="Convolutions"></a>Convolutions</h1><p><strong>Theorem (Convolution Sums and Integrals)</strong><br>If $X$ and $Y$ are independent discrete r.v.s, then the PMF of their sum $T = X+Y$ is<br>$$ \begin{align}<br>  P(T=t) =&amp; \sum_x P(Y = t-x) P(X=x) \\<br>         =&amp; \sum_y P(X= t-y) P(Y=y)<br>\end{align}$$<br>If $X$ and $Y$ are independent continuous r.v.s, then the PMF of their sum $T = X+Y$ is<br>$$\begin{align}<br>  f_T(t)  =&amp; \int_{-\infty}^{\infty} f_Y(t-x) f_X(x) dx \\<br>          =&amp; \int_{-\infty}^{\infty} f_X(t-y) f_Y(y) dy<br>\end{align}$$</p>
-<hr>
-<h1 id="Order-Statistics"><a href="#Order-Statistics" class="headerlink" title="Order Statistics"></a>Order Statistics</h1><p><strong>Definition (Order Statistics)</strong> For r.v.s $X_1,X_2,…,X_n$ the order statistics sre the random variables $X_{(1)},…,X_{(2)}$, where</p>
-<ul>
-<li>$X_{(1)}  = min (X_1,…,X_n)$</li>
-<li>$X_{(2)}$ is the $2^{nd}$ of $X_1,…,X_n$</li>
-<li>$\vdots$</li>
-<li>$X_{n} = max(X_1,…,X_n)$</li>
-</ul>
-<p>The order statistics are dependent, for example , if $X_{(1)} = 100$, then $X_{(n)}$ is forced to be $\geq 100$</p>
-<p>We foucs on the case $X_1,…,X_n$ are i.i.d continuous r.v.s, with CDF $F$ and PDF $f$</p>
-<p><strong>Theorem (CDF of Order Statistics)</strong>  Let $X_1,…,X_n$ be i.i.d continuous r.v.s with CDF F, Then the CDF of the $j^{th}$ order statistic $X_{(j)}$ is<br>$$P(X_{(j)}\leq x)=\sum_{k=j}^n<br>\left( \begin{array}{c} n\\k  \end{array} \right) F(x)^k(1-F(x))^{n-k}<br>$$</p>
-<p><strong><em>Proof:</em></strong></p>
-<hr>
-<p>Let’s start with a specical case when $j=n, X_{(n)}=max(X_1,…,X_n)$:<br>$$\begin{align}<br>F_{X_{(n)}} (x) &amp;= P[max(X_1,…,X_n)\leq x] \\<br>&amp;=P(X_1\leq  x)\dotsb P(X_n\leq x) \\<br>&amp;=[F(x)]^n<br>\end{align}$$</p>
-<hr>
-<p>Then, consider another special case when $j=1, X_{(1)} = min(X_1,…,X_n)$:<br>$$\begin{align}<br>F_{X_{(1)}} (x) &amp;= P[min(X_1,…,X_n)\leq x] \\<br>&amp;=1 - P(X_1&gt;  x)\dotsb P(X_n&gt; x) \\<br>&amp;=1-[1-F(x)]^n<br>\end{align}$$<br>The result here can be rewrite as $\sum_{k=1}^n\left( \begin{array}{c} n\\k \end{array} \right) F(x)^k (1-F(x))^{n-k}$</p>
-<p>This result can be obtained by expand $[F(x) + 1 -F(x)]^n$</p>
-<hr>
-<p>Finally, let’s consider more general case where $1&lt;j&lt;n, X_{(j)}\leq x$, this means at least $j$ of ${X_i }$ fall to the left of $x$</p>
-<p>Denote $N$ as the nunber of $X_i$ landing to the left of $x$. $X_i$ lands to the left of $x$ w.p. $P(X_i\leq x) = F(x)$. Then $N\sim Bin(n,F(x))$<br>$$P(X_{(j)}\leq x) = P(N\geq j=\sum_{k=j}^n \left( \begin{array}{c} n\\k \end{array} \right) F(x)^k(1-F(x))^{n-k}$$</p>
-<hr>
-<p><strong>Theorem (PDF of Order Statistic)</strong> Let $X_1,…,X_n$ be i.i.d. continuous r.v.s with CDF $F$ and PDF $f$. Then the marginal PDF of $j^{th}$ order statistic $X_{(j)}$ is<br>$$f_{X_{(j)}} (x) = n \left( \begin{array}{c} n-1\\j-1 \end{array} \right) f(x) F(x)^{j-1} (1-F(x))^{n-j}$$</p>
-<p><strong>Theorem (Joint PDF)</strong> Let $X_1,…,X_n$ be i.i.d. continuous r.v.s with PDF $f$, Then the joint PDF of all order statistics is<br>$$f_{X_{(1)},…,X_{(n)}}(x_1,…,x_n) = n! \prod_{i=1}^n f(x_i), x_1&lt;x_2&lt;\dotsb &lt;x_n$$</p>
-<p><strong>Example 1(Order Statistics of Uniforms)</strong> $U_1,U_2,…,U_n$ are i.i.d. $Unif(0,1)$ r.v.s with CDF F and PDF $f$</p>
-<p>For $0\leq x\leq 1$ ,$f(x) = 1$ , $F(x) = x$, Then</p>
-<p>$$f_{U_{(j)}} = n \left( \begin{array}{c} n-1\\j-1 \end{array} \right) x^{j-1} (1-x)^{n-j}$$<br>$$F_{U_{(j)}}(x) = \sum_{k=j}^n \left( \begin{array}{c} n\\k \end{array} \right)x^k (1-x)^{n-k} = \int_0^x f_{U_{(j)}} (t) dt = \frac{n!}{(j-1)!(n-j)!}\int_0^x t^{j-1}(1-t)^{n-j}dt$$</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.cnblogs.com/aixueshuqian/p/3936892.html" target="_blank" rel="noopener">https://www.cnblogs.com/aixueshuqian/p/3936892.html</a><br><a href="https://www.cnblogs.com/caocan702/p/5666175.html" target="_blank" rel="noopener">https://www.cnblogs.com/caocan702/p/5666175.html</a><br>.</p>
 
       
     </div>
@@ -566,7 +500,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MATH/" rel="tag"># MATH</a>
+            <a href="/tags/ML/" rel="tag"># ML</a>
           
         </div>
       
@@ -591,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/27/Stochastic-Process-5/" rel="next" title="Stochastic-Process (Generating Function)">
-                <i class="fa fa-chevron-left"></i> Stochastic-Process (Generating Function)
+              <a href="/2018/08/04/Stochastic-Process-11/" rel="next" title="Stochastic-Process-11">
+                <i class="fa fa-chevron-left"></i> Stochastic-Process-11
               </a>
             
           </div>
@@ -601,8 +535,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/31/Stochastic-Process-7/" rel="prev" title="Stochastic-Process (Conjugacy & Bayesian)">
-                Stochastic-Process (Conjugacy & Bayesian) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/04/tricks-on-pytorch/" rel="prev" title="tricks on pytorch">
+                tricks on pytorch <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -786,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Discrete-Multivariate-R-V-s"><span class="nav-number">1.</span> <span class="nav-text">Discrete Multivariate R.V.s</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P-Y-y-X-x-P-Y-y"><span class="nav-number">1.1.</span> <span class="nav-text">$$P(Y=y|X=x) = P(Y=y)$$</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Continuous-Multivariate-R-V-s"><span class="nav-number">2.</span> <span class="nav-text">Continuous Multivariate R.V.s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#General-Bayes’-Rule"><span class="nav-number">2.0.1.</span> <span class="nav-text">General Bayes’ Rule</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Convariance-and-Correlation"><span class="nav-number">3.</span> <span class="nav-text">Convariance and Correlation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties-of-Covariance"><span class="nav-number">3.0.1.</span> <span class="nav-text">Properties of Covariance</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-of-Variables"><span class="nav-number">4.</span> <span class="nav-text">Change of Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolutions"><span class="nav-number">5.</span> <span class="nav-text">Convolutions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Order-Statistics"><span class="nav-number">6.</span> <span class="nav-text">Order Statistics</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#神经学启发"><span class="nav-number">1.</span> <span class="nav-text">神经学启发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数学推导"><span class="nav-number">2.</span> <span class="nav-text">数学推导</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Training"><span class="nav-number">2.0.1.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding"><span class="nav-number">2.0.2.</span> <span class="nav-text">Coding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">2.0.3.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
             
 
           </div>
