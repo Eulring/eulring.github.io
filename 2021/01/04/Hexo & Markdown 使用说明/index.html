@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Eulring">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="HexoCommandsPipeline123hexo generatehexo deploy Installation1234567sudo npm install -g hexo-clinpm uninstall hexo-renderer-marked --savenpm install hexo-renderer-kramed --savenpm install hexo-math --">
+<meta name="keywords" content="config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 使用说明">
+<meta property="og:url" content="http://yoursite.com/2021/01/04/Hexo & Markdown 使用说明/index.html">
 <meta property="og:site_name" content="Eulring">
+<meta property="og:description" content="HexoCommandsPipeline123hexo generatehexo deploy Installation1234567sudo npm install -g hexo-clinpm uninstall hexo-renderer-marked --savenpm install hexo-renderer-kramed --savenpm install hexo-math --">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-01-04T08:15:31.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eulring">
+<meta name="twitter:title" content="Hexo 使用说明">
+<meta name="twitter:description" content="HexoCommandsPipeline123hexo generatehexo deploy Installation1234567sudo npm install -g hexo-clinpm uninstall hexo-renderer-marked --savenpm install hexo-renderer-kramed --savenpm install hexo-math --">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2021/01/04/Hexo & Markdown 使用说明/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'default'
   };
 </script>
 
-  <title>Eulring</title>
+  <title>Hexo 使用说明 | Eulring</title>
   
 
 
@@ -139,9 +144,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
@@ -157,10 +163,9 @@
       <meta itemprop="name" content="Eulring">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/04/Hexo & Markdown 使用说明/" class="post-title-link" itemprop="url">Hexo 使用说明</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Hexo 使用说明
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -184,7 +189,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h4 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+        <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h4 id="Pipeline"><a href="#Pipeline" class="headerlink" title="Pipeline"></a>Pipeline</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line"></span><br><span class="line">npm install hexo-renderer-kramed --save</span><br><span class="line"></span><br><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure>
 <p>安装完成后，下载主题 theme 并在站点配置文件中选择主题。</p>
 <p>之后，再在 <code>next</code> 的配置文件中将 <code>mathjax</code> 设置为 <code>true</code>。</p>
@@ -254,21 +259,26 @@
 <p><a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">https://www.jianshu.com/p/7ab21c7f0674</a></p>
 </blockquote>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/config/" rel="tag"># config</a>
+          </div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -321,6 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo"><span class="nav-number">1.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands"><span class="nav-number">1.1.</span> <span class="nav-text">Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pipeline"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Pipeline</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.2.</span> <span class="nav-text">Installation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MarkDown"><span class="nav-number">2.</span> <span class="nav-text">MarkDown</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Zone"><span class="nav-number">2.1.</span> <span class="nav-text">Code Zone</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-Lines"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Multi Lines</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Single-Lines"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Single Lines</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert-Images"><span class="nav-number">2.2.</span> <span class="nav-text">Insert Images</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Super-Link"><span class="nav-number">2.3.</span> <span class="nav-text">Super Link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fonts"><span class="nav-number">2.4.</span> <span class="nav-text">Fonts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">2.5.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">2.6.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Table"><span class="nav-number">2.7.</span> <span class="nav-text">Table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Separate-Line"><span class="nav-number">2.8.</span> <span class="nav-text">Separate Line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Equation"><span class="nav-number">2.9.</span> <span class="nav-text">Equation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference-1"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
